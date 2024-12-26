@@ -43,9 +43,9 @@ export default function Home() {
                   title="Restaurants List"
                   placeholderText="Add a new restaurant"
                   list={[
-                    { id: '1', content: 'Interstellar BBQ' },
-                    { id: '2', content: 'Gibson Street Bar' },
-                    { id: '3', content: 'Odd Duck' },
+                    { id: '1', content: 'Interstellar BBQ', notes: '' },
+                    { id: '2', content: 'Gibson Street Bar', notes: '' },
+                    { id: '3', content: 'Odd Duck', notes: '' },
                   ]}
                 />
                 <div>
