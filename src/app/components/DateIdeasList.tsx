@@ -12,14 +12,15 @@ interface DateIdea {
   content: string
 }
 
-export default function DateIdeasList() {
-  const [dateIdeas, setDateIdeas] = useState<DateIdea[]>([
-    { id: '1', content: 'Picnic in the park' },
-    { id: '2', content: 'Visit a museum' },
-    { id: '3', content: 'Cook dinner together' },
-    { id: '4', content: 'Go stargazing' },
-    { id: '5', content: 'Take a dance class' },
-  ])
+export default function DateIdeasList({ title, list }) {
+//   const [dateIdeas, setDateIdeas] = useState<DateIdea[]>([
+//     { id: '1', content: 'Picnic in the park' },
+//     { id: '2', content: 'Visit a museum' },
+//     { id: '3', content: 'Cook dinner together' },
+//     { id: '4', content: 'Go stargazing' },
+//     { id: '5', content: 'Take a dance class' },
+//   ])
+  const [dateIdeas, setDateIdeas] = useState<DateIdea[]>(list)
   const [newIdea, setNewIdea] = useState('')
 
   const sensors = useSensors(
@@ -51,7 +52,7 @@ export default function DateIdeasList() {
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
-      <h1 className="text-2xl font-bold mb-4">Date Ideas List</h1>
+      <h1 className="text-2xl font-bold mb-4">{title}</h1>
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <SortableContext items={dateIdeas} strategy={verticalListSortingStrategy}>
           <ul className="space-y-2 mb-4">
