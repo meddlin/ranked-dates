@@ -9,7 +9,8 @@ import { Input } from '@/components/ui/input'
 
 interface DateIdea {
   id: string
-  content: string
+  content: string,
+  notes: string
 }
 
 export default function DateIdeasList(props: { title: string, placeholderText: string, list: DateIdea[] }) {
