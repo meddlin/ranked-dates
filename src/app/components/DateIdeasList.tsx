@@ -12,7 +12,7 @@ interface DateIdea {
   content: string
 }
 
-export default function DateIdeasList({ title, placeholderText, list }) {
+export default function DateIdeasList(props: { title: string, placeholderText: string, list: DateIdea[] }) {
 //   const [dateIdeas, setDateIdeas] = useState<DateIdea[]>([
 //     { id: '1', content: 'Picnic in the park' },
 //     { id: '2', content: 'Visit a museum' },
@@ -20,7 +20,7 @@ export default function DateIdeasList({ title, placeholderText, list }) {
 //     { id: '4', content: 'Go stargazing' },
 //     { id: '5', content: 'Take a dance class' },
 //   ])
-  const [dateIdeas, setDateIdeas] = useState<DateIdea[]>(list)
+  const [dateIdeas, setDateIdeas] = useState<DateIdea[]>(props.list)
   const [newIdea, setNewIdea] = useState('')
 
   const sensors = useSensors(
@@ -52,7 +52,7 @@ export default function DateIdeasList({ title, placeholderText, list }) {
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
-      <h1 className="text-2xl font-bold mb-4">{title}</h1>
+      <h1 className="text-2xl font-bold mb-4">{props.title}</h1>
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <SortableContext items={dateIdeas} strategy={verticalListSortingStrategy}>
           <ul className="space-y-2 mb-4">
@@ -69,7 +69,7 @@ export default function DateIdeasList({ title, placeholderText, list }) {
           type="text"
           value={newIdea}
           onChange={(e) => setNewIdea(e.target.value)}
-          placeholder={placeholderText}
+          placeholder={props.placeholderText}
           className="flex-grow"
         />
         <Button type="submit">Add</Button>
