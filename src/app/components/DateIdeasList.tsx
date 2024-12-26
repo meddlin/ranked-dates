@@ -46,7 +46,7 @@ export default function DateIdeasList(props: { title: string, placeholderText: s
   function handleAddIdea(e: React.FormEvent) {
     e.preventDefault()
     if (newIdea.trim()) {
-      setDateIdeas([...dateIdeas, { id: `${dateIdeas.length + 1}`, content: newIdea.trim() }])
+      setDateIdeas([...dateIdeas, { id: `${dateIdeas.length + 1}`, content: newIdea.trim(), notes: '' }])
       setNewIdea('')
     }
   }
