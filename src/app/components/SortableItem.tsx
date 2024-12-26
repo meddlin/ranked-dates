@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import { GripVertical } from 'lucide-react'
+import { GripVertical, Delete } from 'lucide-react'
 
 interface SortableItemProps {
   id: string
@@ -39,6 +39,9 @@ export function SortableItem({ id, index, children }: SortableItemProps) {
         <GripVertical size={16} />
       </button>
       <span className="flex-grow">{children}</span>
+      <button onClick={() => alert('clicked delete')}>
+        <Delete size={16} />
+      </button>
     </li>
   )
 }

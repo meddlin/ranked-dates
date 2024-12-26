@@ -12,7 +12,7 @@ interface DateIdea {
   content: string
 }
 
-export default function DateIdeasList({ title, list }) {
+export default function DateIdeasList({ title, placeholderText, list }) {
 //   const [dateIdeas, setDateIdeas] = useState<DateIdea[]>([
 //     { id: '1', content: 'Picnic in the park' },
 //     { id: '2', content: 'Visit a museum' },
@@ -69,7 +69,7 @@ export default function DateIdeasList({ title, list }) {
           type="text"
           value={newIdea}
           onChange={(e) => setNewIdea(e.target.value)}
-          placeholder="Add a new date idea"
+          placeholder={placeholderText}
           className="flex-grow"
         />
         <Button type="submit">Add</Button>

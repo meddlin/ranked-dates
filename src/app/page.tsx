@@ -9,6 +9,7 @@ export default function Home() {
         <div className="flex flex-row justify-between align-center space-x-16">
           <DateIdeasList 
             title="Date Ideas List" 
+            placeholderText="Add a new date idea"
             list={[
               { id: '1', content: 'Picnic in the park' },
               { id: '2', content: 'Visit a museum' },
@@ -19,6 +20,7 @@ export default function Home() {
           />
           <DateIdeasList 
             title="Restaurants List" 
+            placeholderText="Add a new restaurant"
             list={[
               { id: '1', content: 'Interstellar BBQ' },
               { id: '2', content: 'Gibson Street Bar' },
