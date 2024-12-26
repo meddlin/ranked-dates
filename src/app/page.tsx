@@ -5,9 +5,6 @@ import { useState } from "react"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import DateIdeasList from "./components/DateIdeasList";
 
-const ComponentOne = () => <div className="p-4 bg-gray-100 rounded-lg">Content for Component One</div>
-const ComponentTwo = () => <div className="p-4 bg-gray-100 rounded-lg">Content for Component Two</div>
-
 export default function Home() {
   const [activeTab, setActiveTab] = useState("tab1")
   const [hoveredItem, setHoveredItem] = useState('where are the dark sky areas?')
