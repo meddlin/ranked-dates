@@ -2,14 +2,16 @@ import React from 'react'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { GripVertical, Delete } from 'lucide-react'
+import { useAppStore } from '@/lib/clientStore'
 
 interface SortableItemProps {
   id: string
-  index: number
+  index: number,
+  notes: string,
   children: React.ReactNode
 }
 
-export function SortableItem({ id, index, children }: SortableItemProps) {
+export function SortableItem({ id, index, notes, children }: SortableItemProps) {
   const {
     attributes,
     listeners,
@@ -23,12 +25,16 @@ export function SortableItem({ id, index, children }: SortableItemProps) {
     transition,
   }
 
+  const previewedItem = useAppStore((state: any) => state.previewedItem);
+  const setPreviewedItem = useAppStore((state: any) => state.setPreviewedItem);
+
   return (
     <li
       ref={setNodeRef}
       style={style}
       {...attributes}
       className="flex items-center space-x-2 p-2 bg-gray-100 rounded"
+      onMouseEnter={() => setPreviewedItem(notes)}
     >
       <span className="font-semibold w-6 text-center">{index}</span>
       <button
