@@ -25,7 +25,6 @@ export function SortableItem({ id, index, notes, children }: SortableItemProps) 
     transition,
   }
 
-  const previewedItem = useAppStore((state: any) => state.previewedItem);
   const setPreviewedItem = useAppStore((state: any) => state.setPreviewedItem);
 
   return (

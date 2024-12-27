@@ -14,13 +14,6 @@ interface DateIdea {
 }
 
 export default function DateIdeasList(props: { title: string, placeholderText: string, list: DateIdea[] }) {
-//   const [dateIdeas, setDateIdeas] = useState<DateIdea[]>([
-//     { id: '1', content: 'Picnic in the park' },
-//     { id: '2', content: 'Visit a museum' },
-//     { id: '3', content: 'Cook dinner together' },
-//     { id: '4', content: 'Go stargazing' },
-//     { id: '5', content: 'Take a dance class' },
-//   ])
   const [dateIdeas, setDateIdeas] = useState<DateIdea[]>(props.list)
   const [newIdea, setNewIdea] = useState('')
 
