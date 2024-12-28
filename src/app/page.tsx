@@ -5,6 +5,7 @@ import { useState } from "react"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import DateIdeasList from "./components/DateIdeasList";
 import { useAppStore } from '@/lib/clientStore';
+import NotesDisplay from "./components/NotesDisplay";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("tab1")
@@ -23,7 +24,7 @@ export default function Home() {
               <TabsTrigger value="tab2">Restaurants</TabsTrigger>
             </TabsList>
             <TabsContent value="tab1">
-              <div className="flex flex-row justify-between align-center space-x-16">
+              <div className="flex flex-row justify-between align-center space-x-8">
                 <DateIdeasList
                   title="Date Ideas List"
                   placeholderText="Add a new date idea"
@@ -35,13 +36,11 @@ export default function Home() {
                     { id: '5', content: 'Take a dance class', notes: 'still need to decide on a studio' },
                   ]}
                 />
-                <div>
-                  {previewedItem}
-                </div>
+                <NotesDisplay notesContent={previewedItem} />
               </div>
             </TabsContent>
             <TabsContent value="tab2">
-              <div className="flex flex-row justify-between align-center space-x-16">
+              <div className="flex flex-row justify-between align-center space-x-8">
                 <DateIdeasList
                   title="Restaurants List"
                   placeholderText="Add a new restaurant"
@@ -51,9 +50,7 @@ export default function Home() {
                     { id: '3', content: 'Odd Duck', notes: 'looks Austin fancy' },
                   ]}
                 />
-                <div>
-                  {previewedItem}
-                </div>
+                <NotesDisplay notesContent={previewedItem} />
               </div>
             </TabsContent>
           </Tabs>
