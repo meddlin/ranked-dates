@@ -14,13 +14,6 @@ interface DateIdea {
 }
 
 export default function DateIdeasList(props: { title: string, placeholderText: string, list: DateIdea[] }) {
-//   const [dateIdeas, setDateIdeas] = useState<DateIdea[]>([
-//     { id: '1', content: 'Picnic in the park' },
-//     { id: '2', content: 'Visit a museum' },
-//     { id: '3', content: 'Cook dinner together' },
-//     { id: '4', content: 'Go stargazing' },
-//     { id: '5', content: 'Take a dance class' },
-//   ])
   const [dateIdeas, setDateIdeas] = useState<DateIdea[]>(props.list)
   const [newIdea, setNewIdea] = useState('')
 
@@ -58,7 +51,7 @@ export default function DateIdeasList(props: { title: string, placeholderText: s
         <SortableContext items={dateIdeas} strategy={verticalListSortingStrategy}>
           <ul className="space-y-2 mb-4">
             {dateIdeas.map((idea, index) => (
-              <SortableItem key={idea.id} id={idea.id} index={index + 1}>
+              <SortableItem key={idea.id} id={idea.id} index={index + 1} notes={idea.notes}>
                 {idea.content}
               </SortableItem>
             ))}

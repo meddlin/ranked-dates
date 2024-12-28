@@ -4,10 +4,13 @@ import Image from "next/image";
 import { useState } from "react"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import DateIdeasList from "./components/DateIdeasList";
+import { useAppStore } from '@/lib/clientStore';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("tab1")
-  const [hoveredItem, setHoveredItem] = useState('where are the dark sky areas?')
+
+  const previewedItem = useAppStore((state: any) => state.previewedItem);
+  // const setPreviewedItem = useAppStore((state: any) => state.setPreviewedItem);
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -33,7 +36,7 @@ export default function Home() {
                   ]}
                 />
                 <div>
-                  {hoveredItem}
+                  {previewedItem}
                 </div>
               </div>
             </TabsContent>
@@ -43,13 +46,13 @@ export default function Home() {
                   title="Restaurants List"
                   placeholderText="Add a new restaurant"
                   list={[
-                    { id: '1', content: 'Interstellar BBQ', notes: '' },
-                    { id: '2', content: 'Gibson Street Bar', notes: '' },
-                    { id: '3', content: 'Odd Duck', notes: '' },
+                    { id: '1', content: 'Interstellar BBQ', notes: 'michelin star BBQ' },
+                    { id: '2', content: 'Gibson Street Bar', notes: 'cool place on S. Lamar' },
+                    { id: '3', content: 'Odd Duck', notes: 'looks Austin fancy' },
                   ]}
                 />
                 <div>
-                  {hoveredItem}
+                  {previewedItem}
                 </div>
               </div>
             </TabsContent>
