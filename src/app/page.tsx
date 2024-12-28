@@ -23,7 +23,7 @@ export default function Home() {
               <TabsTrigger value="tab2">Restaurants</TabsTrigger>
             </TabsList>
             <TabsContent value="tab1">
-              <div className="flex flex-row justify-between align-center space-x-16">
+              <div className="flex flex-row justify-between align-center space-x-8">
                 <DateIdeasList
                   title="Date Ideas List"
                   placeholderText="Add a new date idea"
@@ -35,7 +35,7 @@ export default function Home() {
                     { id: '5', content: 'Take a dance class', notes: 'still need to decide on a studio' },
                   ]}
                 />
-                <div>
+                <div className="pt-16 w-72 text-pretty"> {/* border-2 border-blue-300"> */}
                   {previewedItem}
                 </div>
               </div>
