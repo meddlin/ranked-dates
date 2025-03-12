@@ -7,15 +7,28 @@ import DateIdeasList from "./components/DateIdeasList";
 import { useAppStore } from '@/lib/clientStore';
 import NotesDisplay from "./components/NotesDisplay";
 
+// import { auth, currentUser } from '@clerk/nextjs/server';
+import { useUser } from '@clerk/clerk-react';
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState("tab1")
 
   const previewedItem = useAppStore((state: any) => state.previewedItem);
   // const setPreviewedItem = useAppStore((state: any) => state.setPreviewedItem);
 
+  // const { userId } = await auth();
+  // const user = await currentUser();
+  const { isLoaded, user } = useUser();
+  console.log('auth user')
+  console.log(user)
+  console.log(user?.emailAddresses[0].emailAddress)
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+
+        
+        {/* <div>{`user: ${JSON.stringify(user)}`}</div> */}
 
         <div className="w-full max-w-2xl mx-auto p-4">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
