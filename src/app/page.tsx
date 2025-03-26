@@ -1,11 +1,15 @@
 'use client'
 
 import Image from "next/image";
+import Link from 'next/link';
 import { useState } from "react"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import DateIdeasList from "./components/DateIdeasList";
 import { useAppStore } from '@/lib/clientStore';
 import NotesDisplay from "./components/NotesDisplay";
+
+// import { auth, currentUser } from '@clerk/nextjs/server';
+import { useUser } from '@clerk/clerk-react';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("tab1")
@@ -13,11 +17,18 @@ export default function Home() {
   const previewedItem = useAppStore((state: any) => state.previewedItem);
   // const setPreviewedItem = useAppStore((state: any) => state.setPreviewedItem);
 
+  // const { userId } = await auth();
+  // const user = await currentUser();
+  const { isLoaded, isSignedIn, user } = useUser();
+  console.log('auth user')
+  console.log(user)
+  console.log(user?.emailAddresses[0].emailAddress)
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
 
-        <div className="w-full max-w-2xl mx-auto p-4">
+        {user && isSignedIn ? (<div className="w-full max-w-2xl mx-auto p-4">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="tab1">Date Ideas</TabsTrigger>
@@ -54,13 +65,19 @@ export default function Home() {
               </div>
             </TabsContent>
           </Tabs>
-        </div>
+        </div>) : (
+          <Link href="/sign-in">Sign In!</Link>
+        ) 
+        }
+
+        
 
       </main>
 
 
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
+        <a>Ranked Dates</a>
+        {/* <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
           target="_blank"
@@ -104,7 +121,7 @@ export default function Home() {
             height={16}
           />
           Go to nextjs.org →
-        </a>
+        </a> */}
       </footer>
     </div>
   );
