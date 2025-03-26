@@ -18,7 +18,7 @@ export default function Home() {
 
   // const { userId } = await auth();
   // const user = await currentUser();
-  const { isLoaded, user } = useUser();
+  const { isLoaded, isSignedIn, user } = useUser();
   console.log('auth user')
   console.log(user)
   console.log(user?.emailAddresses[0].emailAddress)
@@ -27,7 +27,7 @@ export default function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
 
-        {user && user !== null ? (<div className="w-full max-w-2xl mx-auto p-4">
+        {user && isSignedIn ? (<div className="w-full max-w-2xl mx-auto p-4">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="tab1">Date Ideas</TabsTrigger>
