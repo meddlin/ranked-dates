@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image";
+import Link from 'next/link';
 import { useState } from "react"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import DateIdeasList from "./components/DateIdeasList";
@@ -65,7 +66,7 @@ export default function Home() {
             </TabsContent>
           </Tabs>
         </div>) : (
-          <a href="/sign-in">Sign In!</a>
+          <Link href="/sign-in">Sign In!</Link>
         ) 
         }
 
