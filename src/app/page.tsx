@@ -35,7 +35,7 @@ export default function Home() {
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
                 Guessing what to do? Never again. That swanky restaurant. The chill hangout. The dive bar 
-                that isn't so dive-y. All stored in one place.
+                that isn&apos;t so dive-y. All stored in one place.
               </p>
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
                 <Link
