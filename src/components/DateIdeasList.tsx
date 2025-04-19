@@ -36,12 +36,24 @@ export default function DateIdeasList(props: { title: string, placeholderText: s
     }
   }
 
-  function handleAddIdea(e: React.FormEvent) {
+  async function handleAddIdea(e: React.FormEvent) {
     e.preventDefault()
     if (newIdea.trim()) {
       setDateIdeas([...dateIdeas, { id: `${dateIdeas.length + 1}`, content: newIdea.trim(), notes: '' }])
       setNewIdea('')
     }
+
+    const response = await fetch(`http://localhost:3000/api/places`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        idea: newIdea,
+      }).toString(),
+    }).then (res => {
+      console.log(res);
+    })
   }
 
   return (
