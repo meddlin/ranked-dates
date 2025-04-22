@@ -35,7 +35,6 @@ export default function NotesDisplay(props: { notesContent: string }) {
              */
 
             // Do something with form data
-            // console.log(value)
             console.log(JSON.stringify(value))
 
             /**
@@ -185,22 +184,6 @@ export default function NotesDisplay(props: { notesContent: string }) {
                                 />
                             </div>
                         </form>
-                    </div>
-
-                    <div className="flex flex-row justify-between ml-2">
-                        {/* <Button
-                            type="submit"
-                            onClick={
-                                () => {
-                                    setIsSaving(!isSaving)
-                                    setTimeout(() => { setIsSaving(false) }, 1000)
-                                    setTimeout(() => { setEditing(!editing) }, 1050)
-                                }
-                            }
-                        >
-                            <Save />
-                        </Button> */}
-
                     </div>
                 </div>
             ) : (
