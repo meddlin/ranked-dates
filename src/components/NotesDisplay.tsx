@@ -30,9 +30,18 @@ export default function NotesDisplay(props: { notesContent: string }) {
             notes: ''
         },
         onSubmit: async ({ value }) => {
+            /**
+             * Network calls should happen here
+             */
+
             // Do something with form data
             // console.log(value)
-            alert(JSON.stringify(value))
+            console.log(JSON.stringify(value))
+
+            /**
+             * Remember to "clean up" any sort of UI state or loading animations
+             */
+            setTimeout(() => { setEditing(!editing) }, 1050)
         },
     })
 
@@ -43,15 +52,24 @@ export default function NotesDisplay(props: { notesContent: string }) {
                 <div className="flex flex-col justify-between h-72">
                     <div className="relative">
                         {isSaving ? (
-                            <div className="absolute inset-0 bg-gray-500 bg-opacity-50 text-white flex items-center justify-center pointer-events-none text-lg">
-                                <ProcessingAnimation />
-                            </div>
+                            <ProcessingAnimation />
+                            // <div className="absolute inset-0 bg-gray-500 bg-opacity-50 text-white flex items-center justify-center pointer-events-none text-lg">
+                            //     <ProcessingAnimation />
+                            // </div>
                         ) : ('')}
 
                         <form
-                            onSubmit={(e) => {
-                                e.preventDefault()
-                                e.stopPropagation()
+                            onSubmit={(event) => {
+                                /**
+                                 * Beginning of form submission happens here
+                                 * - this is a good place to trigger long-running UI visualizations
+                                 */
+                                event.preventDefault()
+                                event.stopPropagation()
+
+                                setIsSaving(!isSaving)
+                                setTimeout(() => { setIsSaving(false) }, 3000)
+                                // setTimeout(() => { setEditing(!editing) }, 1050)
 
                                 form.handleSubmit()
                             }}
@@ -149,34 +167,28 @@ export default function NotesDisplay(props: { notesContent: string }) {
                                 <form.Subscribe
                                     selector={(state) => [state.canSubmit, state.isSubmitting]}
                                     children={([canSubmit, isSubmitting]) => (
-                                        <>
-                                            <button type="submit" disabled={!canSubmit}>
+                                        <div className="flex flex-row justify-between">
+                                            <Button type="submit" disabled={!canSubmit}>
                                                 {isSubmitting ? '...' : 'Submit'}
-                                            </button>
-                                            <button type="reset" onClick={() => form.reset()}>
+                                                <Save />
+                                            </Button>
+                                            <Button type="reset" onClick={() => form.reset()}>
                                                 Reset
-                                            </button>
-                                        </>
+                                            </Button>
+                                            <Button
+                                                className="bg-gray-200 text-gray-900"
+                                                onClick={() => setEditing(!editing)}>
+                                                <PencilOff />
+                                            </Button>
+                                        </div>
                                     )}
                                 />
                             </div>
                         </form>
-                        {/* <Label htmlFor="name">Name</Label>
-                        <Input />
-                        <Label htmlFor="mapsLink">maps link</Label>
-                        <Input />
-                        <Label htmlFor="notes">Notes</Label>
-                        <Textarea
-                            className="h-72 mb-4"
-                            placeholder="Add your notes here"
-                            value={props.notesContent}
-                            onChange={() => console.log('notes textarea onChange')}
-                            disabled={isSaving ? true : false}
-                        /> */}
                     </div>
 
                     <div className="flex flex-row justify-between ml-2">
-                        <Button
+                        {/* <Button
                             type="submit"
                             onClick={
                                 () => {
@@ -187,12 +199,8 @@ export default function NotesDisplay(props: { notesContent: string }) {
                             }
                         >
                             <Save />
-                        </Button>
-                        <Button
-                            className="bg-gray-200 text-gray-900"
-                            onClick={() => setEditing(!editing)}>
-                            <PencilOff />
-                        </Button>
+                        </Button> */}
+
                     </div>
                 </div>
             ) : (
