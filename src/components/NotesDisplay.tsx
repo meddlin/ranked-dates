@@ -90,22 +90,21 @@ export default function NotesDisplay(props: { notesContent: string }) {
                                             )
                                         },
                                     }}
-                                    children={(field) => {
-                                        return (
-                                            <>
-                                                <label htmlFor={field.name}>Name:</label>
-                                                <Input
-                                                    id={field.name}
-                                                    name={field.name}
-                                                    value={field.state.value}
-                                                    onBlur={field.handleBlur}
-                                                    onChange={(e) => field.handleChange(e.target.value)}
-                                                />
-                                                <FieldInfo field={field} />
-                                            </>
-                                        )
-                                    }}
-                                />
+                                >
+                                    {(field) => (
+                                        <>
+                                            <label htmlFor={field.name}>Name:</label>
+                                            <Input
+                                                id={field.name}
+                                                name={field.name}
+                                                value={field.state.value}
+                                                onBlur={field.handleBlur}
+                                                onChange={(e) => field.handleChange(e.target.value)}
+                                            />
+                                            <FieldInfo field={field} />
+                                        </>
+                                    )}
+                                </form.Field>
                                 <form.Field
                                     name="mapsLink"
                                     validators={{
@@ -118,22 +117,22 @@ export default function NotesDisplay(props: { notesContent: string }) {
                                             )
                                         },
                                     }}
-                                    children={(field) => {
-                                        return (
-                                            <>
-                                                <label htmlFor={field.name}>Maps Link:</label>
-                                                <Input
-                                                    id={field.name}
-                                                    name={field.name}
-                                                    value={field.state.value}
-                                                    onBlur={field.handleBlur}
-                                                    onChange={(e) => field.handleChange(e.target.value)}
-                                                />
-                                                <FieldInfo field={field} />
-                                            </>
-                                        )
-                                    }}
-                                />
+                                >
+                                    {(field) => (
+                                        <>
+                                            <label htmlFor={field.name}>Maps Link:</label>
+                                            <Input
+                                                id={field.name}
+                                                name={field.name}
+                                                value={field.state.value}
+                                                onBlur={field.handleBlur}
+                                                onChange={(e) => field.handleChange(e.target.value)}
+                                            />
+                                            <FieldInfo field={field} />
+                                        </>
+                                    )}
+                                </form.Field>
+
                                 <form.Field
                                     name="notes"
                                     validators={{
@@ -146,42 +145,42 @@ export default function NotesDisplay(props: { notesContent: string }) {
                                             )
                                         },
                                     }}
-                                    children={(field) => {
-                                        return (
-                                            <>
-                                                <label htmlFor={field.name}>Notes:</label>
-                                                <Textarea
-                                                    className="h-72 mb-4"
-                                                    id={field.name}
-                                                    name={field.name}
-                                                    value={field.state.value}
-                                                    onBlur={field.handleBlur}
-                                                    onChange={(e) => field.handleChange(e.target.value)}
-                                                />
-                                                <FieldInfo field={field} />
-                                            </>
-                                        )
-                                    }}
-                                />
+                                >
+                                    {(field) => (
+                                        <>
+                                            <label htmlFor={field.name}>Notes:</label>
+                                            <Textarea
+                                                className="h-72 mb-4"
+                                                id={field.name}
+                                                name={field.name}
+                                                value={field.state.value}
+                                                onBlur={field.handleBlur}
+                                                onChange={(e) => field.handleChange(e.target.value)}
+                                            />
+                                            <FieldInfo field={field} />
+                                        </>
+                                    )}
+                                </form.Field>
                                 <form.Subscribe
                                     selector={(state) => [state.canSubmit, state.isSubmitting]}
-                                    children={([canSubmit, isSubmitting]) => (
+                                >
+                                    {([canSubmit, isSubmitting]) => (
                                         <div className="flex flex-row justify-between">
-                                            <Button type="submit" disabled={!canSubmit}>
-                                                {isSubmitting ? '...' : 'Submit'}
-                                                <Save />
-                                            </Button>
-                                            <Button type="reset" onClick={() => form.reset()}>
-                                                Reset
-                                            </Button>
-                                            <Button
-                                                className="bg-gray-200 text-gray-900"
-                                                onClick={() => setEditing(!editing)}>
-                                                <PencilOff />
-                                            </Button>
-                                        </div>
+                                        <Button type="submit" disabled={!canSubmit}>
+                                            {isSubmitting ? '...' : 'Submit'}
+                                            <Save />
+                                        </Button>
+                                        <Button type="reset" onClick={() => form.reset()}>
+                                            Reset
+                                        </Button>
+                                        <Button
+                                            className="bg-gray-200 text-gray-900"
+                                            onClick={() => setEditing(!editing)}>
+                                            <PencilOff />
+                                        </Button>
+                                    </div>
                                     )}
-                                />
+                                </form.Subscribe>
                             </div>
                         </form>
                     </div>
