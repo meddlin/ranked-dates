@@ -27,13 +27,13 @@ export default function Dashboard() {
                     {user && isSignedIn ? (<div className="w-full max-w-2xl mx-auto p-4">
                         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
                             <TabsList className="grid w-full grid-cols-2">
-                                <TabsTrigger value="tab1">Date Ideas</TabsTrigger>
+                                <TabsTrigger value="tab1">Places</TabsTrigger>
                                 <TabsTrigger value="tab2">Restaurants</TabsTrigger>
                             </TabsList>
                             <TabsContent value="tab1">
                                 <div className="flex flex-row justify-between align-center space-x-8">
                                     <DateIdeasList
-                                        title="Date Ideas List"
+                                        title="Places"
                                         placeholderText="Add a new date idea"
                                         list={[
                                             { id: '1', content: 'Picnic in the park', notes: 'picnic supplies... ...' },
