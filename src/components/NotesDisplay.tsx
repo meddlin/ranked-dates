@@ -3,10 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from '@/components/ui/textarea';
-import { Save, Pencil, PencilOff } from 'lucide-react'
+import { Save, Pencil, PencilOff } from 'lucide-react';
 import ProcessingAnimation from './ProcessingAnimation';
-import { useForm } from '@tanstack/react-form'
-import type { AnyFieldApi } from '@tanstack/react-form'
+import { useForm } from '@tanstack/react-form';
+import type { AnyFieldApi } from '@tanstack/react-form';
 
 function FieldInfo({ field }: { field: AnyFieldApi }) {
     return (
