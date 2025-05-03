@@ -9,7 +9,10 @@ import { Input } from '@/components/ui/input'
 
 interface DateIdea {
   id: string
-  content: string,
+  name: string,
+  location: string,
+  google_maps_link: string,
+  list: string
   notes: string
 }
 
@@ -39,7 +42,7 @@ export default function DateIdeasList(props: { title: string, placeholderText: s
   async function handleAddIdea(e: React.FormEvent) {
     e.preventDefault()
     if (newIdea.trim()) {
-      setDateIdeas([...dateIdeas, { id: `${dateIdeas.length + 1}`, content: newIdea.trim(), notes: '' }])
+      setDateIdeas([...dateIdeas, { id: `${dateIdeas.length + 1}`, name: newIdea.trim(), location: '', google_maps_link: '', list: '', notes: '' }])
       setNewIdea('')
     }
 
@@ -63,8 +66,8 @@ export default function DateIdeasList(props: { title: string, placeholderText: s
         <SortableContext items={dateIdeas} strategy={verticalListSortingStrategy}>
           <ul className="space-y-2 mb-4">
             {dateIdeas.map((idea, index) => (
-              <SortableItem key={idea.id} id={idea.id} index={index + 1} notes={idea.notes}>
-                {idea.content}
+              <SortableItem key={idea.id} id={idea.id} index={index + 1} notes="">
+                {idea.name}
               </SortableItem>
             ))}
           </ul>
