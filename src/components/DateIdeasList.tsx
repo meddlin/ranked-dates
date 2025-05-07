@@ -5,16 +5,9 @@ import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, us
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from '@dnd-kit/sortable'
 import { SortableItem } from './SortableItem'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import { Input } from '@/components/ui/input';
+import { DateIdea } from '@/types/DateIdea'
 
-interface DateIdea {
-  id: string
-  name: string,
-  location: string,
-  google_maps_link: string,
-  list: string
-  notes: string
-}
 
 export default function DateIdeasList(props: { title: string, placeholderText: string, list: DateIdea[] }) {
   const [dateIdeas, setDateIdeas] = useState<DateIdea[]>(props.list)
