@@ -62,7 +62,8 @@ export default function Dashboard() {
             footer: info => info.column.id,
         }),
         columnHelper.accessor('google_maps_link', {
-            header: () => <span>Maps</span>,
+            header: (info) => <span>Maps</span>,
+            cell: (info) => <a href={info.getValue()}>{info.getValue()}</a>,
             footer: info => info.column.id,
         }),
         columnHelper.accessor('list', {
