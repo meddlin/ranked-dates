@@ -112,19 +112,21 @@ export default function LocationsPage() {
                                 <LayoutList className="h-4 w-4" />
                             </ToggleGroupItem>
                         </ToggleGroup>
-
-                        <Tabs defaultValue="all" className="w-auto">
-                            <TabsList>
-                                <TabsTrigger value="all">All</TabsTrigger>
-                                {listNames.map((list) => (
-                                    <TabsTrigger key={list} value={list.toLowerCase().replace(/\s+/g, "-")}>
-                                        {list}
-                                    </TabsTrigger>
-                                ))}
-                            </TabsList>
-                        </Tabs>
                     </div>
                 </div>
+
+
+                <Tabs defaultValue="all">
+                    <TabsList>
+                        <TabsTrigger value="all">All</TabsTrigger>
+                        {listNames.map((list) => (
+                            <TabsTrigger key={list} value={list.toLowerCase().replace(/\s+/g, "-")}>
+                                {list}
+                            </TabsTrigger>
+                        ))}
+                    </TabsList>
+                </Tabs>
+
 
                 {viewMode === "grid" ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
