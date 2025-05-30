@@ -30,6 +30,8 @@ const defaultData: DateIdea[] = [
         id: '1',
         name: 'test place',
         location: 'Austin, TX',
+        city: 'Austin',
+        state: 'TX',
         google_maps_link: 'https://maps.google.com',
         list: 'test',
         notes: 'more later'
@@ -37,9 +39,8 @@ const defaultData: DateIdea[] = [
 ]
 
 export default function Dashboard() {
-    // const [places, setPlaces] = useState<Place[]>([]);
     const { isLoaded, isSignedIn, user } = useUser();
-    const [data, _setData] = useState<Place[]>([]); // useState(() => [...defaultData])
+    const [data, _setData] = useState<Place[]>([]);
     const rerender = useReducer(() => ({}), {})[1]
     useEffect(() => {
         fetch('http://localhost:3000/api/places')
