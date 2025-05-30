@@ -27,8 +27,8 @@ export async function GET(
     request: Request,
     { params }: { params: Promise<{slug: string}> }
 ) {
-    // const { data, error } = await supabase.from("places").insert({name: 'test place', location: '', google_maps_link: ''})
-    const { data, error } = await supabase.from("places").select()
+    // const { data, error } = await supabase.from("places").select().neq("state", "").not("state", "is", null);
+    const { data, error } = await supabase.from("places").select();
 
     console.log(JSON.stringify(data));
     console.log(JSON.stringify(error));
