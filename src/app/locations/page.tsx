@@ -151,7 +151,8 @@ export default function LocationsPage() {
                                                     </div>
                                                     <div className="flex items-center gap-2">
                                                         <MapPin className="h-4 w-4 text-muted-foreground" />
-                                                        <p className="text-sm text-muted-foreground">{item.location}</p>
+                                                        {/* <p className="text-sm text-muted-foreground">{item.location}</p> */}
+                                                        <p className="text-sm text-muted-foreground">{item.city}, {item.state}</p>
                                                     </div>
                                                 </div>
                                                 <Badge variant="outline">{item.list}</Badge>
