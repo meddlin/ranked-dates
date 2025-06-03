@@ -55,6 +55,8 @@ export default function DateIdeasList(props: {
         {
           id: `${dateIdeas.length + 1}`,
           name: newIdea.trim(),
+          city: "",
+          state: "",
           location: "",
           google_maps_link: "",
           list: "",
