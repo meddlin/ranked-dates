@@ -73,7 +73,7 @@ export default function RootLayout({
                   Dashboard
                 </Link>
                 <Link
-                  href="/places"
+                  href="/locations"
                   className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
                   data-oid="h25rgm0"
                 >
