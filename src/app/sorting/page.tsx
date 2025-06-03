@@ -290,6 +290,7 @@ export default function SortingPage() {
                   className="h-12 w-12 text-gray-400 mb-4"
                   data-oid="nz-.yb_"
                 />
+
                 <h3
                   className="text-lg font-semibold text-gray-600 mb-2"
                   data-oid="hgtv1yv"
@@ -355,6 +356,7 @@ export default function SortingPage() {
                                 className="h-4 w-4 text-gray-600"
                                 data-oid="9.-ia_y"
                               />
+
                               <h3
                                 className="font-semibold text-lg"
                                 data-oid="y3_q11u"
@@ -377,6 +379,7 @@ export default function SortingPage() {
                                   className="h-3 w-3"
                                   data-oid="sj7ftl."
                                 />
+
                                 {idea.location}
                               </div>
                             )}

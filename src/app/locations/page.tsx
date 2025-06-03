@@ -56,8 +56,8 @@ export default function LocationsPage() {
   return (
     <>
       {/* {<span>{user && user.id ? user.id : 'something up with id'}</span>}
-             <br />
-             {JSON.stringify(user)} */}
+                 <br />
+                 {JSON.stringify(user)} */}
 
       {isSignedIn ?
       <div
