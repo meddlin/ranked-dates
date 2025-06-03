@@ -71,8 +71,214 @@ export default function Home() {
               className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center"
               data-oid="4vbghh6"
             >
-              {/* <Terminal /> */}
-              <span data-oid="gdmheil">phone mockup here</span>
+              <div
+                className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]"
+                data-oid="-rh5bqj"
+              >
+                <div
+                  className="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"
+                  data-oid="h0b:515"
+                ></div>
+                <div
+                  className="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"
+                  data-oid="m-5q70d"
+                ></div>
+                <div
+                  className="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"
+                  data-oid="ra5gm7d"
+                ></div>
+                <div
+                  className="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"
+                  data-oid="sx1fb4e"
+                ></div>
+                <div
+                  className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800"
+                  data-oid="wmjde05"
+                >
+                  <div
+                    className="bg-orange-500 px-4 py-6 text-white"
+                    data-oid="6v3sivo"
+                  >
+                    <div
+                      className="flex items-center justify-between mb-4"
+                      data-oid="jpcdswv"
+                    >
+                      <h1 className="text-xl font-bold" data-oid="i3nvl_m">
+                        Ranked Dates
+                      </h1>
+                      <div
+                        className="w-8 h-8 bg-white/20 rounded-full"
+                        data-oid="bpetapr"
+                      ></div>
+                    </div>
+                    <p className="text-orange-100 text-sm" data-oid="igpn.gh">
+                      Your places. Your way.
+                    </p>
+                  </div>
+
+                  <div className="p-4 space-y-3" data-oid="wvrju4c">
+                    <div
+                      className="bg-gray-50 rounded-lg p-3 border-l-4 border-orange-500"
+                      data-oid="m76f3:6"
+                    >
+                      <div
+                        className="flex items-center justify-between"
+                        data-oid="xb5dqrf"
+                      >
+                        <div data-oid="yv6j1rt">
+                          <h3
+                            className="font-semibold text-gray-900 text-sm"
+                            data-oid="i2-lnph"
+                          >
+                            The Rooftop Bar
+                          </h3>
+                          <p
+                            className="text-gray-600 text-xs"
+                            data-oid="_clpwkk"
+                          >
+                            Downtown • $$
+                          </p>
+                        </div>
+                        <div
+                          className="text-orange-500 font-bold text-lg"
+                          data-oid="m6xj:3u"
+                        >
+                          #1
+                        </div>
+                      </div>
+                      <p
+                        className="text-gray-500 text-xs mt-1"
+                        data-oid="jonajyq"
+                      >
+                        Amazing city views, perfect for special occasions
+                      </p>
+                    </div>
+
+                    <div
+                      className="bg-gray-50 rounded-lg p-3 border-l-4 border-orange-400"
+                      data-oid="3twjwjt"
+                    >
+                      <div
+                        className="flex items-center justify-between"
+                        data-oid=":8jatdy"
+                      >
+                        <div data-oid="z8qutgq">
+                          <h3
+                            className="font-semibold text-gray-900 text-sm"
+                            data-oid="suozzjl"
+                          >
+                            Coffee Corner
+                          </h3>
+                          <p
+                            className="text-gray-600 text-xs"
+                            data-oid="88l7qbt"
+                          >
+                            Midtown • $
+                          </p>
+                        </div>
+                        <div
+                          className="text-orange-400 font-bold text-lg"
+                          data-oid="uz5z4uv"
+                        >
+                          #2
+                        </div>
+                      </div>
+                      <p
+                        className="text-gray-500 text-xs mt-1"
+                        data-oid="x9xc_-0"
+                      >
+                        Great for morning dates, excellent pastries
+                      </p>
+                    </div>
+
+                    <div
+                      className="bg-gray-50 rounded-lg p-3 border-l-4 border-orange-300"
+                      data-oid="cs52wrj"
+                    >
+                      <div
+                        className="flex items-center justify-between"
+                        data-oid="ceftu.s"
+                      >
+                        <div data-oid="y:b3j08">
+                          <h3
+                            className="font-semibold text-gray-900 text-sm"
+                            data-oid="_dpbiio"
+                          >
+                            Park Trail
+                          </h3>
+                          <p
+                            className="text-gray-600 text-xs"
+                            data-oid="mpqs00a"
+                          >
+                            Westside • Free
+                          </p>
+                        </div>
+                        <div
+                          className="text-orange-300 font-bold text-lg"
+                          data-oid="hxe:wix"
+                        >
+                          #3
+                        </div>
+                      </div>
+                      <p
+                        className="text-gray-500 text-xs mt-1"
+                        data-oid="pktobe_"
+                      >
+                        Beautiful hiking trail, bring water bottles
+                      </p>
+                    </div>
+
+                    <div
+                      className="bg-gray-50 rounded-lg p-3 border-l-4 border-gray-300"
+                      data-oid="jzsnf9o"
+                    >
+                      <div
+                        className="flex items-center justify-between"
+                        data-oid="ypysl8p"
+                      >
+                        <div data-oid="m5dtpj:">
+                          <h3
+                            className="font-semibold text-gray-900 text-sm"
+                            data-oid="kqlm08-"
+                          >
+                            Local Dive
+                          </h3>
+                          <p
+                            className="text-gray-600 text-xs"
+                            data-oid="kppxxs5"
+                          >
+                            East End • $
+                          </p>
+                        </div>
+                        <div
+                          className="text-gray-400 font-bold text-lg"
+                          data-oid="7760:vn"
+                        >
+                          #4
+                        </div>
+                      </div>
+                      <p
+                        className="text-gray-500 text-xs mt-1"
+                        data-oid="6tq1zun"
+                      >
+                        Casual vibes, great for game nights
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    className="absolute bottom-4 left-4 right-4"
+                    data-oid="j.8v6z_"
+                  >
+                    <button
+                      className="w-full bg-orange-500 text-white py-2 rounded-lg text-sm font-medium"
+                      data-oid=".-hj4ja"
+                    >
+                      + Add New Place
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
