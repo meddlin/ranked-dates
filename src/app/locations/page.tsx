@@ -8,6 +8,11 @@ import {
   User,
   LayoutGrid,
   LayoutList,
+  MoreVertical,
+  Edit,
+  Trash2,
+  Star,
+  Copy,
 } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -24,6 +29,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   useUser,
   ClerkProvider,
@@ -43,6 +55,33 @@ export default function LocationsPage() {
   // Get unique list names for filtering
   const listNames = [...new Set(data.map((item) => item.list))];
 
+  // Quick action handlers
+  const handleEdit = (item: Place) => {
+    // TODO: Open edit modal or navigate to edit page
+    console.log("Edit location:", item);
+  };
+
+  const handleDelete = (item: Place) => {
+    // TODO: Show confirmation dialog and delete
+    if (confirm(`Are you sure you want to delete "${item.name}"?`)) {
+      console.log("Delete location:", item);
+      // Remove from state for now
+      _setData(data.filter((location) => location.id !== item.id));
+    }
+  };
+
+  const handleToggleFavorite = (item: Place) => {
+    // TODO: Toggle favorite status
+    console.log("Toggle favorite:", item);
+  };
+
+  const handleCopyLocation = (item: Place) => {
+    const locationText = `${item.name} - ${item.city}, ${item.state}`;
+    navigator.clipboard.writeText(locationText);
+    // TODO: Show toast notification
+    console.log("Copied to clipboard:", locationText);
+  };
+
   useEffect(() => {
     if (!user) return;
 
@@ -56,8 +95,8 @@ export default function LocationsPage() {
   return (
     <>
       {/* {<span>{user && user.id ? user.id : 'something up with id'}</span>}
-                         <br />
-                         {JSON.stringify(user)} */}
+                          <br />
+                          {JSON.stringify(user)} */}
 
       {isSignedIn ? (
         <div
@@ -327,92 +366,92 @@ export default function LocationsPage() {
             </div>
             {/* ) : (
             <div className="flex flex-col space-y-4" data-oid="f-bdbio">
-             {data.map((item) => (
-               <div
-                 key={item.id}
-                 className="flex flex-col sm:flex-row border rounded-lg p-4 hover:shadow-md transition-all"
-                 data-oid="l37u40f"
-               >
-                 <div className="flex-1 space-y-3" data-oid="8__9fp9">
-                   <div
-                     className="flex flex-col sm:flex-row sm:items-center justify-between gap-2"
-                     data-oid="k:w-0.t"
-                   >
-                     <div
-                       className="flex items-center gap-2"
-                       data-oid="xk1gj9o"
-                     >
-                       <User
-                         className="h-5 w-5 text-muted-foreground"
-                         data-oid="d:.-vk_"
-                       />
-                        <h3
-                         className="font-semibold text-lg"
-                         data-oid="roi_nk2"
-                       >
-                         {item.name}
-                       </h3>
-                     </div>
-                     <Badge variant="outline" data-oid="lb9n8w-">
-                       {item.list}
-                     </Badge>
-                   </div>
-                    <div className="flex items-center gap-2" data-oid="03lwdsc">
-                     <MapPin
-                       className="h-4 w-4 text-muted-foreground"
-                       data-oid="lq06hwp"
-                     />
-                      <p
-                       className="text-sm text-muted-foreground"
-                       data-oid="n97jkzl"
-                     >
-                       {item.location}
-                     </p>
-                   </div>
-                    <div className="flex items-start gap-2" data-oid="wsuip03">
-                     <FileText
-                       className="h-4 w-4 text-muted-foreground mt-0.5"
-                       data-oid="3b:ijl5"
-                     />
-                      <p className="text-sm" data-oid="jz_5u.g">
-                       {item.notes}
-                     </p>
-                   </div>
+            {data.map((item) => (
+              <div
+                key={item.id}
+                className="flex flex-col sm:flex-row border rounded-lg p-4 hover:shadow-md transition-all"
+                data-oid="l37u40f"
+              >
+                <div className="flex-1 space-y-3" data-oid="8__9fp9">
+                  <div
+                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-2"
+                    data-oid="k:w-0.t"
+                  >
                     <div
-                     className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-2 border-t mt-2"
-                     data-oid="3m14z33"
-                   >
-                     <div
-                       className="flex items-center text-sm text-muted-foreground"
-                       data-oid=":nuddgw"
-                     >
-                       <List className="h-4 w-4 mr-1" data-oid="5:m1cv3" />
-                       {item.list}
-                     </div>
-                     <Button
-                       variant="outline"
-                       size="sm"
-                       asChild
-                       data-oid="_vum9r9"
-                     >
-                       <Link
-                         href={item.google_maps_link}
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         data-oid="_flqvx_"
-                       >
-                         <MapPin className="h-4 w-4 mr-2" data-oid="yaz:jg4" />
-                         View on Maps
-                         <ExternalLink
-                           className="h-3 w-3 ml-1"
-                           data-oid="6r9giyk"
-                         />
-                       </Link>
-                     </Button>
-                   </div>
-                 </div>
-               </div>
-             ))}
+                      className="flex items-center gap-2"
+                      data-oid="xk1gj9o"
+                    >
+                      <User
+                        className="h-5 w-5 text-muted-foreground"
+                        data-oid="d:.-vk_"
+                      />
+                       <h3
+                        className="font-semibold text-lg"
+                        data-oid="roi_nk2"
+                      >
+                        {item.name}
+                      </h3>
+                    </div>
+                    <Badge variant="outline" data-oid="lb9n8w-">
+                      {item.list}
+                    </Badge>
+                  </div>
+                   <div className="flex items-center gap-2" data-oid="03lwdsc">
+                    <MapPin
+                      className="h-4 w-4 text-muted-foreground"
+                      data-oid="lq06hwp"
+                    />
+                     <p
+                      className="text-sm text-muted-foreground"
+                      data-oid="n97jkzl"
+                    >
+                      {item.location}
+                    </p>
+                  </div>
+                   <div className="flex items-start gap-2" data-oid="wsuip03">
+                    <FileText
+                      className="h-4 w-4 text-muted-foreground mt-0.5"
+                      data-oid="3b:ijl5"
+                    />
+                     <p className="text-sm" data-oid="jz_5u.g">
+                      {item.notes}
+                    </p>
+                  </div>
+                   <div
+                    className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-2 border-t mt-2"
+                    data-oid="3m14z33"
+                  >
+                    <div
+                      className="flex items-center text-sm text-muted-foreground"
+                      data-oid=":nuddgw"
+                    >
+                      <List className="h-4 w-4 mr-1" data-oid="5:m1cv3" />
+                      {item.list}
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      asChild
+                      data-oid="_vum9r9"
+                    >
+                      <Link
+                        href={item.google_maps_link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-oid="_flqvx_"
+                      >
+                        <MapPin className="h-4 w-4 mr-2" data-oid="yaz:jg4" />
+                        View on Maps
+                        <ExternalLink
+                          className="h-3 w-3 ml-1"
+                          data-oid="6r9giyk"
+                        />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
             </div>
             ) */}
           </div>
