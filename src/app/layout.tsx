@@ -98,18 +98,28 @@ export default function RootLayout({
               <SignedOut data-oid="a:mo:eg">
                 <SignInButton data-oid="sq4lf1l">
                   <button
-                    className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+                    className="px-3 py-2 md:px-4 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
                     data-oid="p3v:gp6"
                   >
-                    Sign In
+                    <span className="hidden sm:inline" data-oid="r8k9v3g">
+                      Sign In
+                    </span>
+                    <span className="sm:hidden" data-oid="58hd9zm">
+                      In
+                    </span>
                   </button>
                 </SignInButton>
                 <SignUpButton data-oid="jnsaype">
                   <button
-                    className="px-4 py-2 text-sm font-medium bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+                    className="px-3 py-2 md:px-4 text-sm font-medium bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
                     data-oid="dv8qpz_"
                   >
-                    Sign Up
+                    <span className="hidden sm:inline" data-oid="19z-f.9">
+                      Sign Up
+                    </span>
+                    <span className="sm:hidden" data-oid="4eqm1x0">
+                      Up
+                    </span>
                   </button>
                 </SignUpButton>
               </SignedOut>
@@ -117,7 +127,7 @@ export default function RootLayout({
                 <UserButton data-oid="_:20.un" />
                 <SignOutButton data-oid="yae:n9y">
                   <button
-                    className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+                    className="hidden md:flex px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
                     data-oid="s2z61x5"
                   >
                     Sign Out
