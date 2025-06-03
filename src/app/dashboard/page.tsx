@@ -16,28 +16,6 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-// type Person = {
-//     firstName: string
-//     lastName: string
-//     age: number
-//     visits: number
-//     status: string
-//     progress: number
-// }
-
-const defaultData: DateIdea[] = [
-  {
-    id: "1",
-    name: "test place",
-    location: "Austin, TX",
-    city: "Austin",
-    state: "TX",
-    google_maps_link: "https://maps.google.com",
-    list: "test",
-    notes: "more later",
-  },
-];
-
 export default function Dashboard() {
   const { isLoaded, isSignedIn, user } = useUser();
   const [data, _setData] = useState<Place[]>([]);
@@ -63,12 +41,13 @@ export default function Dashboard() {
       footer: (info) => info.column.id,
     }),
     columnHelper.accessor("google_maps_link", {
-      header: (info) => <span data-oid="-wr.8d-">Maps</span>,
+      header: (info) => <span data-oid="cdjz6bd">Maps</span>,
       cell: (info) => (
-        <a href={info.getValue()} data-oid="3qn0.ac">
+        <a href={info.getValue()} data-oid="11397bv">
           {info.getValue()}
         </a>
       ),
+
       footer: (info) => info.column.id,
     }),
     columnHelper.accessor("list", {
@@ -88,13 +67,13 @@ export default function Dashboard() {
   });
 
   return (
-    <div className="p-2" data-oid="nrvke-:">
-      <table data-oid="10t:8d0">
-        <thead data-oid="x0ta2v3">
+    <div className="p-2" data-oid="bipyb__">
+      <table data-oid="sec4v3t">
+        <thead data-oid="fq8u48f">
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id} data-oid="e0vvvxh">
+            <tr key={headerGroup.id} data-oid="ol5diy_">
               {headerGroup.headers.map((header) => (
-                <th key={header.id} data-oid="r:wo_2b">
+                <th key={header.id} data-oid="3_8zzmb">
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -106,22 +85,22 @@ export default function Dashboard() {
             </tr>
           ))}
         </thead>
-        <tbody data-oid="udloht7">
+        <tbody data-oid="5l_ys5:">
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} data-oid="jkn72_r">
+            <tr key={row.id} data-oid="e.c0:2p">
               {row.getVisibleCells().map((cell) => (
-                <td key={cell.id} data-oid=".y9ff50">
+                <td key={cell.id} data-oid="9qckz39">
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}
             </tr>
           ))}
         </tbody>
-        <tfoot data-oid="yvxwxln">
+        <tfoot data-oid="1q:0qwn">
           {table.getFooterGroups().map((footerGroup) => (
-            <tr key={footerGroup.id} data-oid="t35354k">
+            <tr key={footerGroup.id} data-oid="7qh5y64">
               {footerGroup.headers.map((header) => (
-                <th key={header.id} data-oid=".dkc403">
+                <th key={header.id} data-oid="9u:h8y6">
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -134,11 +113,11 @@ export default function Dashboard() {
           ))}
         </tfoot>
       </table>
-      <div className="h-4" data-oid="wz.xncc" />
+      <div className="h-4" data-oid="2wle_tl" />
       <button
         onClick={() => rerender()}
         className="border p-2"
-        data-oid="j.5.sjk"
+        data-oid="g1an86v"
       >
         Rerender
       </button>

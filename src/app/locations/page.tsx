@@ -8,6 +8,11 @@ import {
   User,
   LayoutGrid,
   LayoutList,
+  MoreVertical,
+  Edit,
+  Trash2,
+  Star,
+  Copy,
 } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -24,6 +29,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   useUser,
   ClerkProvider,
@@ -43,6 +55,33 @@ export default function LocationsPage() {
   // Get unique list names for filtering
   const listNames = [...new Set(data.map((item) => item.list))];
 
+  // Quick action handlers
+  const handleEdit = (item: Place) => {
+    // TODO: Open edit modal or navigate to edit page
+    console.log("Edit location:", item);
+  };
+
+  const handleDelete = (item: Place) => {
+    // TODO: Show confirmation dialog and delete
+    if (confirm(`Are you sure you want to delete "${item.name}"?`)) {
+      console.log("Delete location:", item);
+      // Remove from state for now
+      _setData(data.filter((location) => location.id !== item.id));
+    }
+  };
+
+  const handleToggleFavorite = (item: Place) => {
+    // TODO: Toggle favorite status
+    console.log("Toggle favorite:", item);
+  };
+
+  const handleCopyLocation = (item: Place) => {
+    const locationText = `${item.name} - ${item.city}, ${item.state}`;
+    navigator.clipboard.writeText(locationText);
+    // TODO: Show toast notification
+    console.log("Copied to clipboard:", locationText);
+  };
+
   useEffect(() => {
     if (!user) return;
 
@@ -56,295 +95,280 @@ export default function LocationsPage() {
   return (
     <>
       {/* {<span>{user && user.id ? user.id : 'something up with id'}</span>}
-        <br />
-        {JSON.stringify(user)} */}
+                             <br />
+                             {JSON.stringify(user)} */}
 
       {isSignedIn ? (
-        <div className="container mx-auto py-10" data-oid="evmy-9.">
-          <div className="flex flex-col space-y-6" data-oid="fdocea9">
-            <div className="flex flex-col space-y-2" data-oid="nz8gxzx">
-              <h1
-                className="text-3xl font-bold tracking-tight"
-                data-oid="vqj_uyr"
-              >
-                Locations
-              </h1>
-              <p className="text-muted-foreground" data-oid="j:.x9zh">
-                Browse and manage your saved locations and places of interest.
-              </p>
-            </div>
-
+        <div
+          className="container mx-auto py-6 px-4 sm:py-10"
+          data-oid="j42xctn"
+        >
+          <div className="flex flex-col space-y-6" data-oid="htcm63m">
             <div
-              className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
-              data-oid="iiwcq:i"
+              className="text-center sm:text-left space-y-3"
+              data-oid="lebngzb"
             >
-              <div className="w-full max-w-sm" data-oid="9rrbts4">
-                <Label htmlFor="search" className="sr-only" data-oid="j4.6.9g">
+              <h1
+                className="text-3xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent"
+                data-oid="zlxpf42"
+              >
+                Your Locations
+              </h1>
+              <p className="text-gray-600 text-lg max-w-2xl" data-oid="isbnire">
+                Discover and manage your curated collection of favorite places
+                and memorable date spots.
+              </p>
+              {data.length > 0 && (
+                <div
+                  className="flex items-center gap-4 text-sm text-gray-500 pt-2"
+                  data-oid="u0v-uni"
+                >
+                  <span className="flex items-center gap-1" data-oid="r:m.t01">
+                    <MapPin className="h-4 w-4" data-oid="g4r9-s0" />
+                    {data.length} location{data.length !== 1 ? "s" : ""}
+                  </span>
+                  <span className="flex items-center gap-1" data-oid="oehh1mi">
+                    <List className="h-4 w-4" data-oid="3v:agn." />
+                    {listNames.length} list{listNames.length !== 1 ? "s" : ""}
+                  </span>
+                </div>
+              )}
+            </div>
+            <div
+              className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-4 rounded-lg border shadow-sm"
+              data-oid="rqn1kkk"
+            >
+              <div className="w-full sm:max-w-md" data-oid="cwvhm0q">
+                <Label htmlFor="search" className="sr-only" data-oid=":ux2oxw">
                   Search
                 </Label>
-                <Input
-                  id="search"
-                  placeholder="Search by name or location..."
-                  className="w-full"
-                  data-oid="wt2cpp_"
-                />
+                <div className="relative" data-oid="-cjdu-g">
+                  <MapPin
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400"
+                    data-oid="m0k_ymw"
+                  />
+
+                  <Input
+                    id="search"
+                    placeholder="Search by name or location..."
+                    className="w-full pl-10 border-gray-200 focus:border-orange-300 focus:ring-orange-200"
+                    data-oid=":j510d2"
+                  />
+                </div>
               </div>
 
-              <div className="flex items-center gap-4" data-oid="88-4cep">
+              <div className="flex items-center gap-3" data-oid="pjxibjn">
+                <span
+                  className="text-sm text-gray-600 hidden sm:block"
+                  data-oid="j_u5ilr"
+                >
+                  View:
+                </span>
                 <ToggleGroup
                   type="single"
                   value={viewMode}
                   onValueChange={(value) =>
                     value && setViewMode(value as "grid" | "list")
                   }
-                  data-oid="w0e5pkr"
+                  className="border border-gray-200 rounded-lg p-1"
+                  data-oid="7qicb5a"
                 >
                   <ToggleGroupItem
                     value="grid"
                     aria-label="Grid view"
-                    data-oid="01qz5kv"
+                    className="data-[state=on]:bg-orange-100 data-[state=on]:text-orange-700"
+                    data-oid="b4868t3"
                   >
-                    <LayoutGrid className="h-4 w-4" data-oid="5lbu63b" />
+                    <LayoutGrid className="h-4 w-4" data-oid="pmo4wm0" />
                   </ToggleGroupItem>
                   <ToggleGroupItem
                     value="list"
                     aria-label="List view"
-                    data-oid="afq5:cp"
+                    className="data-[state=on]:bg-orange-100 data-[state=on]:text-orange-700"
+                    data-oid="fxw0w8h"
                   >
-                    <LayoutList className="h-4 w-4" data-oid="mnor7ju" />
+                    <LayoutList className="h-4 w-4" data-oid="_f23qp9" />
                   </ToggleGroupItem>
                 </ToggleGroup>
               </div>
             </div>
-
-            <Tabs defaultValue="all" data-oid="erl1j1w">
-              <TabsList data-oid="ny8k8kw">
-                <TabsTrigger value="all" data-oid="s4d4_7d">
+            <Tabs defaultValue="all" data-oid="c2rw.un">
+              <TabsList data-oid="yq.9kax">
+                <TabsTrigger value="all" data-oid="x7i6s__">
                   All
                 </TabsTrigger>
                 {listNames.map((list) => (
                   <TabsTrigger
                     key={list}
                     value={list.toLowerCase().replace(/\s+/g, "-")}
-                    data-oid="he1mflr"
+                    data-oid="-p9af34"
                   >
                     {list}
                   </TabsTrigger>
                 ))}
               </TabsList>
             </Tabs>
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+              data-oid="gw.jmn0"
+            >
+              {data.length === 0 ? (
+                <div className="col-span-full" data-oid="3hvj:w0">
+                  <Card
+                    className="border-dashed border-2 border-gray-300"
+                    data-oid="97myuqy"
+                  >
+                    <CardContent
+                      className="flex flex-col items-center justify-center py-16 text-center"
+                      data-oid="d3_a10w"
+                    >
+                      <MapPin
+                        className="h-16 w-16 text-gray-400 mb-4"
+                        data-oid="s5w1m4:"
+                      />
 
-            {viewMode === "grid" ? (
-              <div
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                data-oid="62906kh"
-              >
-                {data.map((item) => (
+                      <h3
+                        className="text-xl font-semibold text-gray-600 mb-2"
+                        data-oid="gxesbze"
+                      >
+                        No locations yet
+                      </h3>
+                      <p
+                        className="text-gray-500 mb-6 max-w-md"
+                        data-oid="huoa7-n"
+                      >
+                        Start building your collection of favorite places and
+                        date spots.
+                      </p>
+                      <Button
+                        className="bg-orange-500 hover:bg-orange-600"
+                        data-oid="s3y8m_c"
+                      >
+                        Add Your First Location
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
+              ) : (
+                data.map((item) => (
                   <Card
                     key={item.id}
-                    className="overflow-hidden transition-all hover:shadow-md"
-                    data-oid="vbm3170"
+                    className="group overflow-hidden transition-all duration-200 hover:shadow-lg hover:-translate-y-1 border-0 shadow-sm bg-white"
+                    data-oid="typtmd1"
                   >
-                    <CardHeader className="pb-3 border-b" data-oid="rpj5rzb">
+                    <CardHeader className="pb-4 p-4 sm:p-6" data-oid="azfa.2c">
                       <div
-                        className="flex items-start justify-between"
-                        data-oid="diw7he7"
+                        className="flex flex-col sm:flex-row items-start justify-between gap-3"
+                        data-oid="irxa7g."
                       >
-                        <div className="space-y-1" data-oid="alohzwh">
-                          <div
-                            className="flex items-center gap-2"
-                            data-oid="2akce2c"
+                        <div
+                          className="space-y-2 flex-1 min-w-0"
+                          data-oid="xdu55ua"
+                        >
+                          <h3
+                            className="font-bold text-lg sm:text-xl text-gray-900 leading-tight break-words group-hover:text-orange-600 transition-colors"
+                            data-oid=":v5cev_"
                           >
-                            <User
-                              className="h-4 w-4 text-muted-foreground"
-                              data-oid=".7n2xly"
-                            />
-                            <h3
-                              className="font-semibold text-lg"
-                              data-oid="7.ow.01"
-                            >
-                              {item.name}
-                            </h3>
-                          </div>
+                            {item.name}
+                          </h3>
                           <div
-                            className="flex items-center gap-2"
-                            data-oid="dwob5f4"
+                            className="flex items-start gap-2"
+                            data-oid="sruba69"
                           >
                             <MapPin
-                              className="h-4 w-4 text-muted-foreground"
-                              data-oid="vx_rlf4"
+                              className="h-4 w-4 text-orange-500 mt-0.5 flex-shrink-0"
+                              data-oid="0j:i9w1"
                             />
-                            {/* <p className="text-sm text-muted-foreground">{item.location}</p> */}
+
                             <p
-                              className="text-sm text-muted-foreground"
-                              data-oid="if4ey:p"
+                              className="text-sm text-gray-600 break-words"
+                              data-oid="r.1ix.m"
                             >
                               {item.city}, {item.state}
                             </p>
                           </div>
                         </div>
-                        <Badge variant="outline" data-oid="y1a.0u:">
+                        <Badge
+                          variant="secondary"
+                          className="bg-orange-100 text-orange-800 hover:bg-orange-200 flex-shrink-0 font-medium"
+                          data-oid="xhrwtku"
+                        >
                           {item.list}
                         </Badge>
                       </div>
                     </CardHeader>
-                    <CardContent className="pt-4" data-oid="5u_hv5r">
-                      <div className="space-y-4" data-oid="4.wlg_4">
-                        <div
-                          className="flex items-start gap-2"
-                          data-oid=":izf8yc"
-                        >
-                          <FileText
-                            className="h-4 w-4 text-muted-foreground mt-0.5"
-                            data-oid="-upwi7d"
-                          />
-                          <p className="text-sm" data-oid="987njm0">
-                            {item.notes}
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                    <CardFooter
-                      className="flex justify-between border-t pt-4"
-                      data-oid="_26b5:k"
-                    >
-                      <div
-                        className="flex items-center text-sm text-muted-foreground"
-                        data-oid="e.e3tzi"
+
+                    {item.notes && (
+                      <CardContent
+                        className="pt-0 p-4 sm:p-6 sm:pt-0"
+                        data-oid="k2lc3db"
                       >
-                        <List className="h-4 w-4 mr-1" data-oid="5himf3i" />
-                        {item.list}
-                      </div>
+                        <div
+                          className="bg-gray-50 rounded-lg p-3"
+                          data-oid="uq_435m"
+                        >
+                          <div
+                            className="flex items-start gap-2"
+                            data-oid="uma4c:6"
+                          >
+                            <FileText
+                              className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0"
+                              data-oid="ih1:dk6"
+                            />
+
+                            <p
+                              className="text-sm text-gray-700 leading-relaxed break-words"
+                              data-oid="d1u_44j"
+                            >
+                              {item.notes}
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    )}
+
+                    <CardFooter
+                      className="bg-gray-50/50 border-t-0 pt-4 p-4 sm:p-6"
+                      data-oid="z_5b9us"
+                    >
                       <Button
                         variant="outline"
                         size="sm"
                         asChild
-                        data-oid="8:bmx.v"
+                        className="w-full bg-white hover:bg-orange-50 hover:border-orange-300 hover:text-orange-700 transition-all group/button"
+                        data-oid="-6-e0zo"
                       >
                         <Link
                           href={item.google_maps_link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          data-oid="x:x3e5q"
+                          className="flex items-center justify-center gap-2"
+                          data-oid="8hp819l"
                         >
-                          <MapPin className="h-4 w-4 mr-2" data-oid="4y6yfc0" />
-                          View on Maps
+                          <MapPin
+                            className="h-4 w-4 group-hover/button:text-orange-600"
+                            data-oid="wbmo2dw"
+                          />
+
+                          <span className="font-medium" data-oid="58f22bv">
+                            View on Maps
+                          </span>
                           <ExternalLink
-                            className="h-3 w-3 ml-1"
-                            data-oid="r-r-:hs"
+                            className="h-3 w-3 group-hover/button:text-orange-600"
+                            data-oid="5q_kv:w"
                           />
                         </Link>
                       </Button>
                     </CardFooter>
                   </Card>
-                ))}
-              </div>
-            ) : (
-              <div className="flex flex-col space-y-4" data-oid="tsb1kkt">
-                {data.map((item) => (
-                  <div
-                    key={item.id}
-                    className="flex flex-col sm:flex-row border rounded-lg p-4 hover:shadow-md transition-all"
-                    data-oid="m1vcr1t"
-                  >
-                    <div className="flex-1 space-y-3" data-oid="l.1bfyo">
-                      <div
-                        className="flex flex-col sm:flex-row sm:items-center justify-between gap-2"
-                        data-oid="m.0omm7"
-                      >
-                        <div
-                          className="flex items-center gap-2"
-                          data-oid="4hpd79z"
-                        >
-                          <User
-                            className="h-5 w-5 text-muted-foreground"
-                            data-oid="75xdg40"
-                          />
-                          <h3
-                            className="font-semibold text-lg"
-                            data-oid="q:r:n_6"
-                          >
-                            {item.name}
-                          </h3>
-                        </div>
-                        <Badge variant="outline" data-oid="-um0b84">
-                          {item.list}
-                        </Badge>
-                      </div>
-
-                      <div
-                        className="flex items-center gap-2"
-                        data-oid="cic15mj"
-                      >
-                        <MapPin
-                          className="h-4 w-4 text-muted-foreground"
-                          data-oid="92osv3t"
-                        />
-                        <p
-                          className="text-sm text-muted-foreground"
-                          data-oid="jtfuyl."
-                        >
-                          {item.location}
-                        </p>
-                      </div>
-
-                      <div
-                        className="flex items-start gap-2"
-                        data-oid="8l:azow"
-                      >
-                        <FileText
-                          className="h-4 w-4 text-muted-foreground mt-0.5"
-                          data-oid="y00k95s"
-                        />
-                        <p className="text-sm" data-oid="bssg_iq">
-                          {item.notes}
-                        </p>
-                      </div>
-
-                      <div
-                        className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-2 border-t mt-2"
-                        data-oid="ir760iz"
-                      >
-                        <div
-                          className="flex items-center text-sm text-muted-foreground"
-                          data-oid="feb.vi0"
-                        >
-                          <List className="h-4 w-4 mr-1" data-oid="il53l2-" />
-                          {item.list}
-                        </div>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          asChild
-                          data-oid="fq2npnb"
-                        >
-                          <Link
-                            href={item.google_maps_link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            data-oid="qygwd48"
-                          >
-                            <MapPin
-                              className="h-4 w-4 mr-2"
-                              data-oid="mfnccc4"
-                            />
-                            View on Maps
-                            <ExternalLink
-                              className="h-3 w-3 ml-1"
-                              data-oid="4.d_iu1"
-                            />
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
+                ))
+              )}
+            </div>
+            
           </div>
         </div>
       ) : (
-        <RedirectToSignIn data-oid="e_o_ars" />
+        <RedirectToSignIn data-oid="3hy16m_" />
       )}
     </>
   );

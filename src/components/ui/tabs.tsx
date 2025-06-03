@@ -18,7 +18,6 @@ const TabsList = React.forwardRef<
       className,
     )}
     {...props}
-    data-oid="9zfp3y7"
   />
 ));
 TabsList.displayName = TabsPrimitive.List.displayName;
@@ -34,7 +33,6 @@ const TabsTrigger = React.forwardRef<
       className,
     )}
     {...props}
-    data-oid="btr87w6"
   />
 ));
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
@@ -50,7 +48,6 @@ const TabsContent = React.forwardRef<
       className,
     )}
     {...props}
-    data-oid="m89gyql"
   />
 ));
 TabsContent.displayName = TabsPrimitive.Content.displayName;
