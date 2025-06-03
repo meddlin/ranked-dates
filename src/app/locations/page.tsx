@@ -56,11 +56,14 @@ export default function LocationsPage() {
   return (
     <>
       {/* {<span>{user && user.id ? user.id : 'something up with id'}</span>}
-           <br />
-           {JSON.stringify(user)} */}
+            <br />
+            {JSON.stringify(user)} */}
 
       {isSignedIn ? (
-        <div className="container mx-auto py-10" data-oid="shwpmus">
+        <div
+          className="container mx-auto py-6 px-4 sm:py-10"
+          data-oid="shwpmus"
+        >
           <div className="flex flex-col space-y-6" data-oid="zz8030.">
             <div className="flex flex-col space-y-2" data-oid="6q3pv4y">
               <h1
@@ -78,7 +81,7 @@ export default function LocationsPage() {
               className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
               data-oid="wn6rhd0"
             >
-              <div className="w-full max-w-sm" data-oid="rb8a2lt">
+              <div className="w-full sm:max-w-sm" data-oid="rb8a2lt">
                 <Label htmlFor="search" className="sr-only" data-oid="3wohto.">
                   Search
                 </Label>
