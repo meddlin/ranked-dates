@@ -31,58 +31,58 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <ClerkProvider data-oid="npxd66i">
-      <html lang="en" data-oid="ilgau0r">
+    <ClerkProvider data-oid="1z0uwf_">
+      <html lang="en" data-oid="ztad7nt">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-          data-oid="ycllcqx"
+          data-oid="3hdrk_3"
         >
           <header
             className="flex items-center p-4 gap-4 h-16 bg-white border-b border-gray-200"
-            data-oid="tt-cubq"
+            data-oid="n4yp1oj"
           >
-            <div className="flex items-center" data-oid="q6-hifp">
+            <div className="flex items-center" data-oid="h7ui9:w">
               <Link
                 href="/"
                 className="text-xl font-bold text-gray-900 hover:text-orange-500 transition-colors"
-                data-oid="0j5kp56"
+                data-oid="9m8p6ag"
               >
                 Ranked Dates
               </Link>
             </div>
 
-            <div className="flex-1" data-oid="xd3ze64"></div>
+            <div className="flex-1" data-oid="uco5xhw"></div>
 
             <nav
               className="hidden md:flex items-center space-x-8"
-              data-oid="felc0w4"
+              data-oid="uwd8jzc"
             >
               <Link
                 href="/"
                 className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
-                data-oid="y4z-y6f"
+                data-oid="hlfi3az"
               >
                 Home
               </Link>
-              <SignedIn data-oid="p2d_vy0">
+              <SignedIn data-oid="fi4_tuc">
                 <Link
                   href="/dashboard"
                   className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
-                  data-oid="nit6ro_"
+                  data-oid="qe_vq2i"
                 >
                   Dashboard
                 </Link>
                 <Link
                   href="/places"
                   className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
-                  data-oid="a:qgjhq"
+                  data-oid="h25rgm0"
                 >
                   My Places
                 </Link>
                 <Link
                   href="/profile"
                   className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
-                  data-oid="6l9twcq"
+                  data-oid="72j..92"
                 >
                   Profile
                 </Link>
@@ -91,44 +91,44 @@ export default function RootLayout({
 
             <div
               className="hidden md:block w-px h-6 bg-gray-300 mx-4"
-              data-oid="ncifisb"
+              data-oid="r:mlg3e"
             ></div>
 
-            <div className="flex items-center gap-3" data-oid="-lf6qmk">
-              <SignedOut data-oid="273-mvx">
-                <SignInButton data-oid="l0:46-9">
+            <div className="flex items-center gap-3" data-oid="fppzhm9">
+              <SignedOut data-oid="ravxlpa">
+                <SignInButton data-oid="j.:0bf5">
                   <button
                     className="px-3 py-2 md:px-4 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
-                    data-oid="sdn3pgb"
+                    data-oid="uowj4zs"
                   >
-                    <span className="hidden sm:inline" data-oid="55ibal0">
+                    <span className="hidden sm:inline" data-oid="_i3pl6i">
                       Sign In
                     </span>
-                    <span className="sm:hidden" data-oid="j_4ez31">
+                    <span className="sm:hidden" data-oid="_2dw:xr">
                       In
                     </span>
                   </button>
                 </SignInButton>
-                <SignUpButton data-oid="0nqf4ex">
+                <SignUpButton data-oid="catfi4z">
                   <button
                     className="px-3 py-2 md:px-4 text-sm font-medium bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
-                    data-oid="5.h1o20"
+                    data-oid="p::5_77"
                   >
-                    <span className="hidden sm:inline" data-oid="5c:7ttf">
+                    <span className="hidden sm:inline" data-oid="mmosu2f">
                       Sign Up
                     </span>
-                    <span className="sm:hidden" data-oid="o_aou5l">
+                    <span className="sm:hidden" data-oid="5mxupc7">
                       Up
                     </span>
                   </button>
                 </SignUpButton>
               </SignedOut>
-              <SignedIn data-oid="52z3.ct">
-                <UserButton data-oid="u965vc8" />
-                <SignOutButton data-oid="1r31riz">
+              <SignedIn data-oid="a7l:s0w">
+                <UserButton data-oid="snaaknm" />
+                <SignOutButton data-oid="4:f_8g5">
                   <button
                     className="hidden md:flex px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
-                    data-oid="upkjw7o"
+                    data-oid="64exfe1"
                   >
                     Sign Out
                   </button>

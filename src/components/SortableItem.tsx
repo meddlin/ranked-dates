@@ -34,24 +34,18 @@ export function SortableItem({
       {...attributes}
       className="flex items-center space-x-2 p-2 bg-gray-100 rounded"
       onMouseEnter={() => setPreviewedItem(notes)}
-      data-oid="dsbl68z"
     >
-      <span className="font-semibold w-6 text-center" data-oid="10f:q1n">
-        {index}
-      </span>
+      <span className="font-semibold w-6 text-center">{index}</span>
       <button
         {...listeners}
         className="cursor-move p-1 hover:bg-gray-200 rounded"
         aria-label={`Reorder ${children}`}
-        data-oid="0g6lzkq"
       >
-        <GripVertical size={16} data-oid="8:7wgzh" />
+        <GripVertical size={16} />
       </button>
-      <span className="flex-grow" data-oid="_d4rrcw">
-        {children}
-      </span>
-      <button onClick={() => alert("clicked delete")} data-oid="9ivgu4.">
-        <Delete size={16} data-oid=":gs4zp5" />
+      <span className="flex-grow">{children}</span>
+      <button onClick={() => alert("clicked delete")}>
+        <Delete size={16} />
       </button>
     </li>
   );
