@@ -16,28 +16,6 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-// type Person = {
-//     firstName: string
-//     lastName: string
-//     age: number
-//     visits: number
-//     status: string
-//     progress: number
-// }
-
-const defaultData: DateIdea[] = [
-  {
-    id: "1",
-    name: "test place",
-    location: "Austin, TX",
-    city: "Austin",
-    state: "TX",
-    google_maps_link: "https://maps.google.com",
-    list: "test",
-    notes: "more later",
-  },
-];
-
 export default function Dashboard() {
   const { isLoaded, isSignedIn, user } = useUser();
   const [data, _setData] = useState<Place[]>([]);
