@@ -32,72 +32,72 @@ export default function Dashboard() {
     <>
       <div
         className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
-        data-oid="k:5w3gu"
+        data-oid="r6g_a51"
       >
         <main
           className="flex flex-col gap-8 row-start-2 items-center sm:items-start"
-          data-oid="kwl4rny"
+          data-oid="e2ofbo2"
         >
           {user && isSignedIn ? (
-            <div className="w-full max-w-2xl mx-auto p-4" data-oid="m:vklnz">
+            <div className="w-full max-w-2xl mx-auto p-4" data-oid="gfpkj:-">
               <Tabs
                 value={activeTab}
                 onValueChange={setActiveTab}
                 className="w-full"
-                data-oid=":-i9vz2"
+                data-oid="qw4jmm9"
               >
                 <TabsList
                   className="grid w-full grid-cols-2"
-                  data-oid="ew:spe:"
+                  data-oid="lw69ucb"
                 >
-                  <TabsTrigger value="tab1" data-oid="6cv2d2y">
+                  <TabsTrigger value="tab1" data-oid="8c9p.56">
                     Places
                   </TabsTrigger>
-                  <TabsTrigger value="tab2" data-oid="ubrbyo.">
+                  <TabsTrigger value="tab2" data-oid="ma5timd">
                     Restaurants
                   </TabsTrigger>
                 </TabsList>
-                <TabsContent value="tab1" data-oid="w09k0it">
+                <TabsContent value="tab1" data-oid="dujzwa2">
                   <div
                     className="flex flex-row justify-between align-center space-x-8"
-                    data-oid="fwonhm8"
+                    data-oid="ur2:twe"
                   >
                     <DateIdeasList
                       title="Places"
                       placeholderText="Add a new date idea"
                       list={places}
-                      data-oid="cbpuxa9"
+                      data-oid=":jg69z0"
                     />
 
                     <NotesDisplay
                       notesContent={previewedItem}
-                      data-oid="to9h1m0"
+                      data-oid="4p-kt06"
                     />
                   </div>
                 </TabsContent>
-                <TabsContent value="tab2" data-oid="lw4bud6">
+                <TabsContent value="tab2" data-oid=".jezc8r">
                   <div
                     className="flex flex-row justify-between align-center space-x-8"
-                    data-oid="e3ywl2t"
+                    data-oid="64l3_8j"
                   >
                     <NotesDisplay
                       notesContent={previewedItem}
-                      data-oid="gvyo4wt"
+                      data-oid="agf38al"
                     />
                   </div>
                 </TabsContent>
               </Tabs>
             </div>
           ) : (
-            <RedirectToSignIn data-oid="am7kuk-" />
+            <RedirectToSignIn data-oid="s42_blp" />
           )}
         </main>
 
         <footer
           className="row-start-3 flex gap-6 flex-wrap items-center justify-center"
-          data-oid="zl:1l5i"
+          data-oid="1jhlp3x"
         >
-          <b data-oid="pvq.cxh">Ranked Dates</b>
+          <b data-oid="ve7wct.">Ranked Dates</b>
         </footer>
       </div>
     </>

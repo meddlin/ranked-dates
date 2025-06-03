@@ -56,77 +56,77 @@ export default function LocationsPage() {
   return (
     <>
       {/* {<span>{user && user.id ? user.id : 'something up with id'}</span>}
-        <br />
-        {JSON.stringify(user)} */}
+           <br />
+           {JSON.stringify(user)} */}
 
       {isSignedIn ? (
-        <div className="container mx-auto py-10" data-oid="evmy-9.">
-          <div className="flex flex-col space-y-6" data-oid="fdocea9">
-            <div className="flex flex-col space-y-2" data-oid="nz8gxzx">
+        <div className="container mx-auto py-10" data-oid="shwpmus">
+          <div className="flex flex-col space-y-6" data-oid="zz8030.">
+            <div className="flex flex-col space-y-2" data-oid="6q3pv4y">
               <h1
                 className="text-3xl font-bold tracking-tight"
-                data-oid="vqj_uyr"
+                data-oid="phz8lm4"
               >
                 Locations
               </h1>
-              <p className="text-muted-foreground" data-oid="j:.x9zh">
+              <p className="text-muted-foreground" data-oid="qawhl5f">
                 Browse and manage your saved locations and places of interest.
               </p>
             </div>
 
             <div
               className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
-              data-oid="iiwcq:i"
+              data-oid="wn6rhd0"
             >
-              <div className="w-full max-w-sm" data-oid="9rrbts4">
-                <Label htmlFor="search" className="sr-only" data-oid="j4.6.9g">
+              <div className="w-full max-w-sm" data-oid="rb8a2lt">
+                <Label htmlFor="search" className="sr-only" data-oid="3wohto.">
                   Search
                 </Label>
                 <Input
                   id="search"
                   placeholder="Search by name or location..."
                   className="w-full"
-                  data-oid="wt2cpp_"
+                  data-oid=":662:dj"
                 />
               </div>
 
-              <div className="flex items-center gap-4" data-oid="88-4cep">
+              <div className="flex items-center gap-4" data-oid="v6xy1o:">
                 <ToggleGroup
                   type="single"
                   value={viewMode}
                   onValueChange={(value) =>
                     value && setViewMode(value as "grid" | "list")
                   }
-                  data-oid="w0e5pkr"
+                  data-oid="q2r50_x"
                 >
                   <ToggleGroupItem
                     value="grid"
                     aria-label="Grid view"
-                    data-oid="01qz5kv"
+                    data-oid="6hlynzh"
                   >
-                    <LayoutGrid className="h-4 w-4" data-oid="5lbu63b" />
+                    <LayoutGrid className="h-4 w-4" data-oid=".leqq8n" />
                   </ToggleGroupItem>
                   <ToggleGroupItem
                     value="list"
                     aria-label="List view"
-                    data-oid="afq5:cp"
+                    data-oid="43eglvq"
                   >
-                    <LayoutList className="h-4 w-4" data-oid="mnor7ju" />
+                    <LayoutList className="h-4 w-4" data-oid="q33pd82" />
                   </ToggleGroupItem>
                 </ToggleGroup>
               </div>
             </div>
 
-            <Tabs defaultValue="all" data-oid="erl1j1w">
-              <TabsList data-oid="ny8k8kw">
-                <TabsTrigger value="all" data-oid="s4d4_7d">
+            <Tabs defaultValue="all" data-oid="1h5n1_-">
+              <TabsList data-oid="z.n4v_v">
+                <TabsTrigger value="all" data-oid="6tv4myq">
                   All
                 </TabsTrigger>
                 {listNames.map((list) => (
                   <TabsTrigger
                     key={list}
                     value={list.toLowerCase().replace(/\s+/g, "-")}
-                    data-oid="he1mflr"
+                    data-oid="yr0ovv2"
                   >
                     {list}
                   </TabsTrigger>
@@ -137,68 +137,71 @@ export default function LocationsPage() {
             {viewMode === "grid" ? (
               <div
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                data-oid="62906kh"
+                data-oid="0nu9m3e"
               >
                 {data.map((item) => (
                   <Card
                     key={item.id}
                     className="overflow-hidden transition-all hover:shadow-md"
-                    data-oid="vbm3170"
+                    data-oid="-zu4ltn"
                   >
-                    <CardHeader className="pb-3 border-b" data-oid="rpj5rzb">
+                    <CardHeader className="pb-3 border-b" data-oid="rp89iyo">
                       <div
                         className="flex items-start justify-between"
-                        data-oid="diw7he7"
+                        data-oid="1-fs0l9"
                       >
-                        <div className="space-y-1" data-oid="alohzwh">
+                        <div className="space-y-1" data-oid="26-_uje">
                           <div
                             className="flex items-center gap-2"
-                            data-oid="2akce2c"
+                            data-oid="-mf7mjj"
                           >
                             <User
                               className="h-4 w-4 text-muted-foreground"
-                              data-oid=".7n2xly"
+                              data-oid="onf47ul"
                             />
+
                             <h3
                               className="font-semibold text-lg"
-                              data-oid="7.ow.01"
+                              data-oid="x9-arqk"
                             >
                               {item.name}
                             </h3>
                           </div>
                           <div
                             className="flex items-center gap-2"
-                            data-oid="dwob5f4"
+                            data-oid="-7tc98."
                           >
                             <MapPin
                               className="h-4 w-4 text-muted-foreground"
-                              data-oid="vx_rlf4"
+                              data-oid=".ngce2b"
                             />
+
                             {/* <p className="text-sm text-muted-foreground">{item.location}</p> */}
                             <p
                               className="text-sm text-muted-foreground"
-                              data-oid="if4ey:p"
+                              data-oid="qu816f-"
                             >
                               {item.city}, {item.state}
                             </p>
                           </div>
                         </div>
-                        <Badge variant="outline" data-oid="y1a.0u:">
+                        <Badge variant="outline" data-oid="_usknii">
                           {item.list}
                         </Badge>
                       </div>
                     </CardHeader>
-                    <CardContent className="pt-4" data-oid="5u_hv5r">
-                      <div className="space-y-4" data-oid="4.wlg_4">
+                    <CardContent className="pt-4" data-oid="-r8pjyu">
+                      <div className="space-y-4" data-oid="b5jec.u">
                         <div
                           className="flex items-start gap-2"
-                          data-oid=":izf8yc"
+                          data-oid="b6elqp1"
                         >
                           <FileText
                             className="h-4 w-4 text-muted-foreground mt-0.5"
-                            data-oid="-upwi7d"
+                            data-oid="b-87t0m"
                           />
-                          <p className="text-sm" data-oid="987njm0">
+
+                          <p className="text-sm" data-oid="b.jeh3g">
                             {item.notes}
                           </p>
                         </div>
@@ -206,32 +209,32 @@ export default function LocationsPage() {
                     </CardContent>
                     <CardFooter
                       className="flex justify-between border-t pt-4"
-                      data-oid="_26b5:k"
+                      data-oid="zus._-k"
                     >
                       <div
                         className="flex items-center text-sm text-muted-foreground"
-                        data-oid="e.e3tzi"
+                        data-oid="6q2i3t6"
                       >
-                        <List className="h-4 w-4 mr-1" data-oid="5himf3i" />
+                        <List className="h-4 w-4 mr-1" data-oid="krmqv.2" />
                         {item.list}
                       </div>
                       <Button
                         variant="outline"
                         size="sm"
                         asChild
-                        data-oid="8:bmx.v"
+                        data-oid="5.utgj5"
                       >
                         <Link
                           href={item.google_maps_link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          data-oid="x:x3e5q"
+                          data-oid="3j2yn-5"
                         >
-                          <MapPin className="h-4 w-4 mr-2" data-oid="4y6yfc0" />
+                          <MapPin className="h-4 w-4 mr-2" data-oid="rm5zig6" />
                           View on Maps
                           <ExternalLink
                             className="h-3 w-3 ml-1"
-                            data-oid="r-r-:hs"
+                            data-oid="u_u08cu"
                           />
                         </Link>
                       </Button>
@@ -240,49 +243,51 @@ export default function LocationsPage() {
                 ))}
               </div>
             ) : (
-              <div className="flex flex-col space-y-4" data-oid="tsb1kkt">
+              <div className="flex flex-col space-y-4" data-oid="f-bdbio">
                 {data.map((item) => (
                   <div
                     key={item.id}
                     className="flex flex-col sm:flex-row border rounded-lg p-4 hover:shadow-md transition-all"
-                    data-oid="m1vcr1t"
+                    data-oid="l37u40f"
                   >
-                    <div className="flex-1 space-y-3" data-oid="l.1bfyo">
+                    <div className="flex-1 space-y-3" data-oid="8__9fp9">
                       <div
                         className="flex flex-col sm:flex-row sm:items-center justify-between gap-2"
-                        data-oid="m.0omm7"
+                        data-oid="k:w-0.t"
                       >
                         <div
                           className="flex items-center gap-2"
-                          data-oid="4hpd79z"
+                          data-oid="xk1gj9o"
                         >
                           <User
                             className="h-5 w-5 text-muted-foreground"
-                            data-oid="75xdg40"
+                            data-oid="d:.-vk_"
                           />
+
                           <h3
                             className="font-semibold text-lg"
-                            data-oid="q:r:n_6"
+                            data-oid="roi_nk2"
                           >
                             {item.name}
                           </h3>
                         </div>
-                        <Badge variant="outline" data-oid="-um0b84">
+                        <Badge variant="outline" data-oid="lb9n8w-">
                           {item.list}
                         </Badge>
                       </div>
 
                       <div
                         className="flex items-center gap-2"
-                        data-oid="cic15mj"
+                        data-oid="03lwdsc"
                       >
                         <MapPin
                           className="h-4 w-4 text-muted-foreground"
-                          data-oid="92osv3t"
+                          data-oid="lq06hwp"
                         />
+
                         <p
                           className="text-sm text-muted-foreground"
-                          data-oid="jtfuyl."
+                          data-oid="n97jkzl"
                         >
                           {item.location}
                         </p>
@@ -290,48 +295,49 @@ export default function LocationsPage() {
 
                       <div
                         className="flex items-start gap-2"
-                        data-oid="8l:azow"
+                        data-oid="wsuip03"
                       >
                         <FileText
                           className="h-4 w-4 text-muted-foreground mt-0.5"
-                          data-oid="y00k95s"
+                          data-oid="3b:ijl5"
                         />
-                        <p className="text-sm" data-oid="bssg_iq">
+
+                        <p className="text-sm" data-oid="jz_5u.g">
                           {item.notes}
                         </p>
                       </div>
 
                       <div
                         className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-2 border-t mt-2"
-                        data-oid="ir760iz"
+                        data-oid="3m14z33"
                       >
                         <div
                           className="flex items-center text-sm text-muted-foreground"
-                          data-oid="feb.vi0"
+                          data-oid=":nuddgw"
                         >
-                          <List className="h-4 w-4 mr-1" data-oid="il53l2-" />
+                          <List className="h-4 w-4 mr-1" data-oid="5:m1cv3" />
                           {item.list}
                         </div>
                         <Button
                           variant="outline"
                           size="sm"
                           asChild
-                          data-oid="fq2npnb"
+                          data-oid="_vum9r9"
                         >
                           <Link
                             href={item.google_maps_link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            data-oid="qygwd48"
+                            data-oid="_flqvx_"
                           >
                             <MapPin
                               className="h-4 w-4 mr-2"
-                              data-oid="mfnccc4"
+                              data-oid="yaz:jg4"
                             />
                             View on Maps
                             <ExternalLink
                               className="h-3 w-3 ml-1"
-                              data-oid="4.d_iu1"
+                              data-oid="6r9giyk"
                             />
                           </Link>
                         </Button>
@@ -344,7 +350,7 @@ export default function LocationsPage() {
           </div>
         </div>
       ) : (
-        <RedirectToSignIn data-oid="e_o_ars" />
+        <RedirectToSignIn data-oid="95f8nhv" />
       )}
     </>
   );

@@ -30,23 +30,23 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <ClerkProvider data-oid=":xmai9h">
-      <html lang="en" data-oid="l51xg87">
+    <ClerkProvider data-oid="4288awb">
+      <html lang="en" data-oid="x73pbpj">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-          data-oid="0hfhw-:"
+          data-oid="yyk4x_x"
         >
           <header
             className="flex justify-end items-center p-4 gap-4 h-16"
-            data-oid="qt4_syq"
+            data-oid="sfcju2l"
           >
-            <SignedOut data-oid="8cy843p">
-              <SignInButton data-oid="ueedh.w" />
-              <SignUpButton data-oid="nk2wbl." />
+            <SignedOut data-oid="a:mo:eg">
+              <SignInButton data-oid="sq4lf1l" />
+              <SignUpButton data-oid="jnsaype" />
             </SignedOut>
-            <SignedIn data-oid="v6:7zl4">
-              <UserButton data-oid="6xewzd_" />
-              <SignOutButton data-oid="bppydah" />
+            <SignedIn data-oid="opwcg2f">
+              <UserButton data-oid="_:20.un" />
+              <SignOutButton data-oid="yae:n9y" />
             </SignedIn>
           </header>
           {children}

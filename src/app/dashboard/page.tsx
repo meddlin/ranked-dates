@@ -63,12 +63,13 @@ export default function Dashboard() {
       footer: (info) => info.column.id,
     }),
     columnHelper.accessor("google_maps_link", {
-      header: (info) => <span data-oid="-wr.8d-">Maps</span>,
+      header: (info) => <span data-oid="4rqkpd7">Maps</span>,
       cell: (info) => (
-        <a href={info.getValue()} data-oid="3qn0.ac">
+        <a href={info.getValue()} data-oid="coylm22">
           {info.getValue()}
         </a>
       ),
+
       footer: (info) => info.column.id,
     }),
     columnHelper.accessor("list", {
@@ -88,13 +89,13 @@ export default function Dashboard() {
   });
 
   return (
-    <div className="p-2" data-oid="nrvke-:">
-      <table data-oid="10t:8d0">
-        <thead data-oid="x0ta2v3">
+    <div className="p-2" data-oid="pbo-793">
+      <table data-oid="dsvzzto">
+        <thead data-oid="a6dz3av">
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id} data-oid="e0vvvxh">
+            <tr key={headerGroup.id} data-oid="vdbt_ss">
               {headerGroup.headers.map((header) => (
-                <th key={header.id} data-oid="r:wo_2b">
+                <th key={header.id} data-oid="4.ox8q4">
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -106,22 +107,22 @@ export default function Dashboard() {
             </tr>
           ))}
         </thead>
-        <tbody data-oid="udloht7">
+        <tbody data-oid="3-9o.kd">
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} data-oid="jkn72_r">
+            <tr key={row.id} data-oid=":jmbd3u">
               {row.getVisibleCells().map((cell) => (
-                <td key={cell.id} data-oid=".y9ff50">
+                <td key={cell.id} data-oid="7d5r89_">
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}
             </tr>
           ))}
         </tbody>
-        <tfoot data-oid="yvxwxln">
+        <tfoot data-oid="u5fkdhb">
           {table.getFooterGroups().map((footerGroup) => (
-            <tr key={footerGroup.id} data-oid="t35354k">
+            <tr key={footerGroup.id} data-oid="hcpo85d">
               {footerGroup.headers.map((header) => (
-                <th key={header.id} data-oid=".dkc403">
+                <th key={header.id} data-oid="ee6xikn">
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -134,11 +135,11 @@ export default function Dashboard() {
           ))}
         </tfoot>
       </table>
-      <div className="h-4" data-oid="wz.xncc" />
+      <div className="h-4" data-oid="mn28m8:" />
       <button
         onClick={() => rerender()}
         className="border p-2"
-        data-oid="j.5.sjk"
+        data-oid="puqfh1u"
       >
         Rerender
       </button>
