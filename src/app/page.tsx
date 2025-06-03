@@ -36,13 +36,10 @@ export default function Home() {
               data-oid="g-j5yr8"
             >
               <h1
-                className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl md:text-6xl"
+                className="text-4xl font-bold text-orange-500 tracking-tight sm:text-5xl md:text-6xl"
                 data-oid="niz:l7j"
               >
-                Ranked Dates
-                <span className="block text-orange-500" data-oid="-55sa4w">
-                  Your places. Your way.
-                </span>
+                Your places. Your way.
               </h1>
               <p
                 className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl"
