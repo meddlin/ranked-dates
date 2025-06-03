@@ -25,13 +25,21 @@ export async function POST(
 
 export async function GET(
     request: Request,
-    { params }: { params: Promise<{slug: string}> }
+    { params }: { params: Promise<{id: string}> }
 ) {
-    // const { data, error } = await supabase.from("places").insert({name: 'test place', location: '', google_maps_link: ''})
-    const { data, error } = await supabase.from("places").select()
+    // const { data, error } = await supabase.from("places").select().neq("state", "").not("state", "is", null);
+    
+    const { id } = await params;
+    console.log("-*-*-*-*-*-*-*-*-*")
+    console.log("SERVER OUTPUT")
+    console.log(JSON.stringify(`id: ${id}`))
+    console.log("-*-*-*-*-*-*-*-*-*")
 
-    console.log(JSON.stringify(data));
-    console.log(JSON.stringify(error));
+    const { data, error } = await supabase.from("places").select().eq('user_id', id)
+
+    // Uncomment these for debugging
+    // console.log(JSON.stringify(data));
+    // console.log(JSON.stringify(error));
     
     return Response.json(data)
 }
