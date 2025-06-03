@@ -9,6 +9,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -41,13 +42,51 @@ export default function RootLayout({
             data-oid="sfcju2l"
           >
             <div className="flex items-center" data-oid="123gho6">
-              <h1
-                className="text-xl font-bold text-gray-900"
-                data-oid="cyk.uqu"
+              <Link
+                href="/"
+                className="text-xl font-bold text-gray-900 hover:text-orange-500 transition-colors"
+                data-oid="637_pe1"
               >
                 Ranked Dates
-              </h1>
+              </Link>
             </div>
+
+            <nav
+              className="hidden md:flex items-center space-x-8"
+              data-oid="nxh_f-h"
+            >
+              <Link
+                href="/"
+                className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
+                data-oid="t:afdk8"
+              >
+                Home
+              </Link>
+              <SignedIn data-oid="72ze69l">
+                <Link
+                  href="/dashboard"
+                  className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
+                  data-oid="syqqu9c"
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  href="/places"
+                  className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
+                  data-oid="m3137my"
+                >
+                  My Places
+                </Link>
+                <Link
+                  href="/profile"
+                  className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
+                  data-oid="z_-c0g4"
+                >
+                  Profile
+                </Link>
+              </SignedIn>
+            </nav>
+
             <div className="flex items-center gap-3" data-oid="q4ukx8.">
               <SignedOut data-oid="a:mo:eg">
                 <SignInButton data-oid="sq4lf1l">
