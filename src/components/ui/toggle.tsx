@@ -37,7 +37,7 @@ const Toggle = React.forwardRef<
     ref={ref}
     className={cn(toggleVariants({ variant, size, className }))}
     {...props}
-    data-oid="zf7s.4d"
+    data-oid="kw_o772"
   />
 ));
 
