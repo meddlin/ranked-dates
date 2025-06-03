@@ -38,7 +38,7 @@ export default function RootLayout({
           data-oid="yyk4x_x"
         >
           <header
-            className="flex justify-between items-center p-4 gap-4 h-16 bg-white border-b border-gray-200"
+            className="flex items-center p-4 gap-4 h-16 bg-white border-b border-gray-200"
             data-oid="sfcju2l"
           >
             <div className="flex items-center" data-oid="123gho6">
@@ -50,6 +50,8 @@ export default function RootLayout({
                 Ranked Dates
               </Link>
             </div>
+
+            <div className="flex-1" data-oid="z:ydgaq"></div>
 
             <nav
               className="hidden md:flex items-center space-x-8"
@@ -86,6 +88,11 @@ export default function RootLayout({
                 </Link>
               </SignedIn>
             </nav>
+
+            <div
+              className="hidden md:block w-px h-6 bg-gray-300 mx-4"
+              data-oid="-tvxr96"
+            ></div>
 
             <div className="flex items-center gap-3" data-oid="q4ukx8.">
               <SignedOut data-oid="a:mo:eg">
