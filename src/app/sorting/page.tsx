@@ -147,21 +147,18 @@ export default function SortingPage() {
   };
 
   if (!isSignedIn) {
-    return <RedirectToSignIn data-oid="k.59syy" />;
+    return <RedirectToSignIn />;
   }
 
   return (
-    <div
-      className="container mx-auto py-6 px-4 sm:py-10 max-w-4xl"
-      data-oid="hfagepf"
-    >
-      <div className="space-y-6" data-oid=":l_fu31">
+    <div className="container mx-auto py-6 px-4 sm:py-10 max-w-4xl">
+      <div className="space-y-6">
         {/* Header */}
-        <div className="text-center space-y-2" data-oid="y_au18f">
-          <h1 className="text-3xl font-bold tracking-tight" data-oid="4x_e:qu">
+        <div className="text-center space-y-2">
+          <h1 className="text-3xl font-bold tracking-tight">
             Rank Your Date Ideas
           </h1>
-          <p className="text-muted-foreground" data-oid="4c:zqzo">
+          <p className="text-muted-foreground">
             Create and prioritize your perfect date ideas. Drag to reorder by
             preference.
           </p>
@@ -169,13 +166,12 @@ export default function SortingPage() {
 
         {/* Add New Idea Button */}
         {!showAddForm && (
-          <div className="flex justify-center" data-oid="zhzugz8">
+          <div className="flex justify-center">
             <Button
               onClick={() => setShowAddForm(true)}
               className="bg-orange-500 hover:bg-orange-600"
-              data-oid="q0_kba4"
             >
-              <Plus className="h-4 w-4 mr-2" data-oid="c-ekuts" />
+              <Plus className="h-4 w-4 mr-2" />
               Add Date Idea
             </Button>
           </div>
@@ -183,24 +179,21 @@ export default function SortingPage() {
 
         {/* Add Form */}
         {showAddForm && (
-          <Card className="border-orange-200" data-oid="v-vzrf0">
-            <CardHeader data-oid="ozqh05n">
-              <h3 className="text-lg font-semibold" data-oid="6kpfmud">
-                Add New Date Idea
-              </h3>
+          <Card className="border-orange-200">
+            <CardHeader>
+              <h3 className="text-lg font-semibold">Add New Date Idea</h3>
             </CardHeader>
-            <CardContent className="space-y-4" data-oid="-q37wpz">
-              <div data-oid="801kfam">
+            <CardContent className="space-y-4">
+              <div>
                 <Input
                   placeholder="Date idea title (e.g., 'Sunset hike at Griffith Observatory')"
                   value={newIdea.title}
                   onChange={(e) =>
                     setNewIdea({ ...newIdea, title: e.target.value })
                   }
-                  data-oid=":nz6aio"
                 />
               </div>
-              <div data-oid="2t2hi.5">
+              <div>
                 <Textarea
                   placeholder="Description or notes about this date idea..."
                   value={newIdea.description}
@@ -208,14 +201,10 @@ export default function SortingPage() {
                     setNewIdea({ ...newIdea, description: e.target.value })
                   }
                   rows={3}
-                  data-oid="i0qs:89"
                 />
               </div>
-              <div
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-                data-oid="65zcdr6"
-              >
-                <div data-oid="awbxvnz">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
                   <select
                     value={newIdea.category}
                     onChange={(e) =>
@@ -225,48 +214,31 @@ export default function SortingPage() {
                       })
                     }
                     className="w-full p-2 border border-gray-300 rounded-md"
-                    data-oid="qwab8l."
                   >
-                    <option value="restaurant" data-oid="qn_2fz2">
-                      Restaurant
-                    </option>
-                    <option value="coffee" data-oid="ltzyln-">
-                      Coffee Shop
-                    </option>
-                    <option value="outdoor" data-oid="kt2iyxa">
-                      Outdoor Activity
-                    </option>
-                    <option value="activity" data-oid="gnyyk7i">
-                      Activity/Entertainment
-                    </option>
-                    <option value="other" data-oid="mg_dyw:">
-                      Other
-                    </option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="coffee">Coffee Shop</option>
+                    <option value="outdoor">Outdoor Activity</option>
+                    <option value="activity">Activity/Entertainment</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
-                <div data-oid="7vbo4xa">
+                <div>
                   <Input
                     placeholder="Location (optional)"
                     value={newIdea.location}
                     onChange={(e) =>
                       setNewIdea({ ...newIdea, location: e.target.value })
                     }
-                    data-oid=":wttz_k"
                   />
                 </div>
               </div>
-              <div className="flex gap-2 justify-end" data-oid="3yvm7.t">
-                <Button
-                  variant="outline"
-                  onClick={() => setShowAddForm(false)}
-                  data-oid="bz4wx1w"
-                >
+              <div className="flex gap-2 justify-end">
+                <Button variant="outline" onClick={() => setShowAddForm(false)}>
                   Cancel
                 </Button>
                 <Button
                   onClick={addDateIdea}
                   className="bg-orange-500 hover:bg-orange-600"
-                  data-oid="5s1p48x"
                 >
                   Add Idea
                 </Button>
@@ -276,36 +248,23 @@ export default function SortingPage() {
         )}
 
         {/* Date Ideas List */}
-        <div className="space-y-3" data-oid="6lpa8hv">
+        <div className="space-y-3">
           {dateIdeas.length === 0 ? (
-            <Card
-              className="border-dashed border-2 border-gray-300"
-              data-oid="t8j0bvq"
-            >
-              <CardContent
-                className="flex flex-col items-center justify-center py-12 text-center"
-                data-oid="r4qf5ic"
-              >
-                <Heart
-                  className="h-12 w-12 text-gray-400 mb-4"
-                  data-oid="wsyehoi"
-                />
+            <Card className="border-dashed border-2 border-gray-300">
+              <CardContent className="flex flex-col items-center justify-center py-12 text-center">
+                <Heart className="h-12 w-12 text-gray-400 mb-4" />
 
-                <h3
-                  className="text-lg font-semibold text-gray-600 mb-2"
-                  data-oid="67-l2t:"
-                >
+                <h3 className="text-lg font-semibold text-gray-600 mb-2">
                   No date ideas yet
                 </h3>
-                <p className="text-gray-500 mb-4" data-oid="rictnqq">
+                <p className="text-gray-500 mb-4">
                   Start building your perfect date list!
                 </p>
                 <Button
                   onClick={() => setShowAddForm(true)}
                   className="bg-orange-500 hover:bg-orange-600"
-                  data-oid="we-84u4"
                 >
-                  <Plus className="h-4 w-4 mr-2" data-oid="0wyd0tz" />
+                  <Plus className="h-4 w-4 mr-2" />
                   Add Your First Idea
                 </Button>
               </CardContent>
@@ -321,90 +280,55 @@ export default function SortingPage() {
                   onDragStart={(e) => handleDragStart(e, idea.id)}
                   onDragOver={handleDragOver}
                   onDrop={(e) => handleDrop(e, idea.id)}
-                  data-oid="f93822e"
                 >
-                  <CardContent className="p-4" data-oid="o3ku1z_">
-                    <div className="flex items-start gap-4" data-oid="y0hqrgm">
+                  <CardContent className="p-4">
+                    <div className="flex items-start gap-4">
                       {/* Rank Number */}
-                      <div
-                        className="flex-shrink-0 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
-                        data-oid="zk-:_i:"
-                      >
+                      <div className="flex-shrink-0 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">
                         {idea.rank}
                       </div>
 
                       {/* Drag Handle */}
-                      <div className="flex-shrink-0 mt-1" data-oid="lsizlg4">
-                        <GripVertical
-                          className="h-5 w-5 text-gray-400"
-                          data-oid="_ehsgdx"
-                        />
+                      <div className="flex-shrink-0 mt-1">
+                        <GripVertical className="h-5 w-5 text-gray-400" />
                       </div>
 
                       {/* Content */}
-                      <div className="flex-1 min-w-0" data-oid="urgfv60">
-                        <div
-                          className="flex items-start justify-between gap-4"
-                          data-oid=".b_efaf"
-                        >
-                          <div className="flex-1" data-oid="ptu2z00">
-                            <div
-                              className="flex items-center gap-2 mb-2"
-                              data-oid="29:7sqp"
-                            >
-                              <IconComponent
-                                className="h-4 w-4 text-gray-600"
-                                data-oid="yauwhne"
-                              />
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-2">
+                              <IconComponent className="h-4 w-4 text-gray-600" />
 
-                              <h3
-                                className="font-semibold text-lg"
-                                data-oid="oc_7o0x"
-                              >
+                              <h3 className="font-semibold text-lg">
                                 {idea.title}
                               </h3>
-                              <Badge
-                                className={categoryColors[idea.category]}
-                                data-oid="9g61-xk"
-                              >
+                              <Badge className={categoryColors[idea.category]}>
                                 {idea.category}
                               </Badge>
                             </div>
                             {idea.location && (
-                              <div
-                                className="flex items-center gap-1 text-sm text-gray-600 mb-2"
-                                data-oid="xvypv:m"
-                              >
-                                <MapPin
-                                  className="h-3 w-3"
-                                  data-oid="-s_g0i1"
-                                />
+                              <div className="flex items-center gap-1 text-sm text-gray-600 mb-2">
+                                <MapPin className="h-3 w-3" />
 
                                 {idea.location}
                               </div>
                             )}
                             {idea.description && (
-                              <p
-                                className="text-gray-700 text-sm"
-                                data-oid="1_mhqly"
-                              >
+                              <p className="text-gray-700 text-sm">
                                 {idea.description}
                               </p>
                             )}
                           </div>
 
                           {/* Actions */}
-                          <div
-                            className="flex flex-col gap-1"
-                            data-oid="hir:7ns"
-                          >
+                          <div className="flex flex-col gap-1">
                             <Button
                               variant="ghost"
                               size="sm"
                               onClick={() => moveUp(idea.id)}
                               disabled={idea.rank === 1}
                               className="h-8 w-8 p-0"
-                              data-oid="kw2k3:5"
                             >
                               ↑
                             </Button>
@@ -414,7 +338,6 @@ export default function SortingPage() {
                               onClick={() => moveDown(idea.id)}
                               disabled={idea.rank === dateIdeas.length}
                               className="h-8 w-8 p-0"
-                              data-oid="7.xrwgb"
                             >
                               ↓
                             </Button>
@@ -423,9 +346,8 @@ export default function SortingPage() {
                               size="sm"
                               onClick={() => removeIdea(idea.id)}
                               className="h-8 w-8 p-0 text-red-500 hover:text-red-700"
-                              data-oid="yea_q80"
                             >
-                              <Trash2 className="h-4 w-4" data-oid="8dl3k3r" />
+                              <Trash2 className="h-4 w-4" />
                             </Button>
                           </div>
                         </div>
@@ -440,12 +362,9 @@ export default function SortingPage() {
 
         {/* Save Button */}
         {dateIdeas.length > 0 && (
-          <div className="flex justify-center pt-6" data-oid="vlbs981">
-            <Button
-              className="bg-green-600 hover:bg-green-700"
-              data-oid="0zohb12"
-            >
-              <Save className="h-4 w-4 mr-2" data-oid="wlq:h48" />
+          <div className="flex justify-center pt-6">
+            <Button className="bg-green-600 hover:bg-green-700">
+              <Save className="h-4 w-4 mr-2" />
               Save Rankings
             </Button>
           </div>

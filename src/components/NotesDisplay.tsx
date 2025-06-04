@@ -12,7 +12,7 @@ function FieldInfo({ field }: { field: AnyFieldApi }) {
   return (
     <>
       {field.state.meta.isTouched && field.state.meta.errors.length ? (
-        <em data-oid="r2z1is7">{field.state.meta.errors.join(",")}</em>
+        <em>{field.state.meta.errors.join(",")}</em>
       ) : null}
       {field.state.meta.isValidating ? "Validating..." : null}
     </>
@@ -47,12 +47,12 @@ export default function NotesDisplay(props: { notesContent: string }) {
   });
 
   return (
-    <div className="w-72 text-pretty" data-oid="kz0ep4e">
+    <div className="w-72 text-pretty">
       {editing ? (
-        <div className="flex flex-col justify-between h-72" data-oid="y0:an00">
-          <div className="relative" data-oid="z2d1g-a">
+        <div className="flex flex-col justify-between h-72">
+          <div className="relative">
             {isSaving ? (
-              <ProcessingAnimation data-oid="rzq616u" />
+              <ProcessingAnimation />
             ) : (
               // <div className="absolute inset-0 bg-gray-500 bg-opacity-50 text-white flex items-center justify-center pointer-events-none text-lg">
               //     <ProcessingAnimation />
@@ -77,9 +77,8 @@ export default function NotesDisplay(props: { notesContent: string }) {
 
                 form.handleSubmit();
               }}
-              data-oid="mn3j1zf"
             >
-              <div data-oid="u4sq:_z">
+              <div>
                 <form.Field
                   name="name"
                   validators={{
@@ -98,23 +97,19 @@ export default function NotesDisplay(props: { notesContent: string }) {
                       );
                     },
                   }}
-                  data-oid="o3ms77w"
                 >
                   {(field) => (
                     <>
-                      <label htmlFor={field.name} data-oid="6-zl7ei">
-                        Name:
-                      </label>
+                      <label htmlFor={field.name}>Name:</label>
                       <Input
                         id={field.name}
                         name={field.name}
                         value={field.state.value}
                         onBlur={field.handleBlur}
                         onChange={(e) => field.handleChange(e.target.value)}
-                        data-oid="n5dztwt"
                       />
 
-                      <FieldInfo field={field} data-oid="uc3t65." />
+                      <FieldInfo field={field} />
                     </>
                   )}
                 </form.Field>
@@ -132,23 +127,19 @@ export default function NotesDisplay(props: { notesContent: string }) {
                       );
                     },
                   }}
-                  data-oid="4p90xcp"
                 >
                   {(field) => (
                     <>
-                      <label htmlFor={field.name} data-oid="u_spnaa">
-                        Maps Link:
-                      </label>
+                      <label htmlFor={field.name}>Maps Link:</label>
                       <Input
                         id={field.name}
                         name={field.name}
                         value={field.state.value}
                         onBlur={field.handleBlur}
                         onChange={(e) => field.handleChange(e.target.value)}
-                        data-oid="rl:pz-f"
                       />
 
-                      <FieldInfo field={field} data-oid="7yptru." />
+                      <FieldInfo field={field} />
                     </>
                   )}
                 </form.Field>
@@ -167,13 +158,10 @@ export default function NotesDisplay(props: { notesContent: string }) {
                       );
                     },
                   }}
-                  data-oid="a.cw2-3"
                 >
                   {(field) => (
                     <>
-                      <label htmlFor={field.name} data-oid="l.z1n6e">
-                        Notes:
-                      </label>
+                      <label htmlFor={field.name}>Notes:</label>
                       <Textarea
                         className="h-72 mb-4"
                         id={field.name}
@@ -181,43 +169,29 @@ export default function NotesDisplay(props: { notesContent: string }) {
                         value={field.state.value}
                         onBlur={field.handleBlur}
                         onChange={(e) => field.handleChange(e.target.value)}
-                        data-oid="tnd7v1z"
                       />
 
-                      <FieldInfo field={field} data-oid="c_r.ph." />
+                      <FieldInfo field={field} />
                     </>
                   )}
                 </form.Field>
                 <form.Subscribe
                   selector={(state) => [state.canSubmit, state.isSubmitting]}
-                  data-oid="d359x07"
                 >
                   {([canSubmit, isSubmitting]) => (
-                    <div
-                      className="flex flex-row justify-between"
-                      data-oid="9kgrfnv"
-                    >
-                      <Button
-                        type="submit"
-                        disabled={!canSubmit}
-                        data-oid="1n:qbt7"
-                      >
+                    <div className="flex flex-row justify-between">
+                      <Button type="submit" disabled={!canSubmit}>
                         {isSubmitting ? "..." : "Submit"}
-                        <Save data-oid="o_bf3if" />
+                        <Save />
                       </Button>
-                      <Button
-                        type="reset"
-                        onClick={() => form.reset()}
-                        data-oid="j.wpu9_"
-                      >
+                      <Button type="reset" onClick={() => form.reset()}>
                         Reset
                       </Button>
                       <Button
                         className="bg-gray-200 text-gray-900"
                         onClick={() => setEditing(!editing)}
-                        data-oid="9_-abfs"
                       >
-                        <PencilOff data-oid=":kv8l0c" />
+                        <PencilOff />
                       </Button>
                     </div>
                   )}
@@ -227,15 +201,11 @@ export default function NotesDisplay(props: { notesContent: string }) {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col justify-between h-72" data-oid="f.l5fml">
-          <div className="flex flex-row justify-between" data-oid="7e5h6jw">
+        <div className="flex flex-col justify-between h-72">
+          <div className="flex flex-row justify-between">
             {props.notesContent}
-            <Button
-              className=""
-              onClick={() => setEditing(!editing)}
-              data-oid="sudo9j1"
-            >
-              <Pencil data-oid="uyo3icg" />
+            <Button className="" onClick={() => setEditing(!editing)}>
+              <Pencil />
             </Button>
           </div>
         </div>
