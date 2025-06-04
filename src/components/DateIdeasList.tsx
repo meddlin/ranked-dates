@@ -80,24 +80,32 @@ export default function DateIdeasList(props: {
   }
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
-      <h1 className="text-2xl font-bold mb-4">{props.title}</h1>
+    <div
+      className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg"
+      data-oid="zx2rewu"
+    >
+      <h1 className="text-2xl font-bold mb-4" data-oid="dfh0-j-">
+        {props.title}
+      </h1>
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
         onDragEnd={handleDragEnd}
+        data-oid="67zc:e2"
       >
         <SortableContext
           items={dateIdeas}
           strategy={verticalListSortingStrategy}
+          data-oid="ufseacx"
         >
-          <ul className="space-y-2 mb-4">
+          <ul className="space-y-2 mb-4" data-oid="c14t8:p">
             {dateIdeas.map((idea, index) => (
               <SortableItem
                 key={idea.id}
                 id={idea.id}
                 index={index + 1}
                 notes=""
+                data-oid="rknu59s"
               >
                 {idea.name}
               </SortableItem>
@@ -105,16 +113,23 @@ export default function DateIdeasList(props: {
           </ul>
         </SortableContext>
       </DndContext>
-      <form onSubmit={handleAddIdea} className="flex space-x-2">
+      <form
+        onSubmit={handleAddIdea}
+        className="flex space-x-2"
+        data-oid="t_benr-"
+      >
         <Input
           type="text"
           value={newIdea}
           onChange={(e) => setNewIdea(e.target.value)}
           placeholder={props.placeholderText}
           className="flex-grow"
+          data-oid="-e5hekt"
         />
 
-        <Button type="submit">Add</Button>
+        <Button type="submit" data-oid="nw.j8__">
+          Add
+        </Button>
       </form>
     </div>
   );
