@@ -31,6 +31,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import {
   DropdownMenu,
@@ -47,6 +54,59 @@ import {
   RedirectToSignIn,
   UserButton,
 } from "@clerk/clerk-react";
+
+const US_STATES = [
+  "AL",
+  "AK",
+  "AZ",
+  "AR",
+  "CA",
+  "CO",
+  "CT",
+  "DE",
+  "FL",
+  "GA",
+  "HI",
+  "ID",
+  "IL",
+  "IN",
+  "IA",
+  "KS",
+  "KY",
+  "LA",
+  "ME",
+  "MD",
+  "MA",
+  "MI",
+  "MN",
+  "MS",
+  "MO",
+  "MT",
+  "NE",
+  "NV",
+  "NH",
+  "NJ",
+  "NM",
+  "NY",
+  "NC",
+  "ND",
+  "OH",
+  "OK",
+  "OR",
+  "PA",
+  "RI",
+  "SC",
+  "SD",
+  "TN",
+  "TX",
+  "UT",
+  "VT",
+  "VA",
+  "WA",
+  "WV",
+  "WI",
+  "WY",
+];
 
 export default function LocationsPage() {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -378,18 +438,34 @@ export default function LocationsPage() {
                               >
                                 State
                               </Label>
-                              <Input
-                                id={`state-${item.id}`}
+                              <Select
                                 value={editForm.state || ""}
-                                onChange={(e) =>
+                                onValueChange={(value) =>
                                   setEditForm({
                                     ...editForm,
-                                    state: e.target.value,
+                                    state: value,
                                   })
                                 }
-                                placeholder="State"
-                                data-oid="hogc:_e"
-                              />
+                                data-oid="5e:u9cm"
+                              >
+                                <SelectTrigger data-oid="ctxvz79">
+                                  <SelectValue
+                                    placeholder="Select state"
+                                    data-oid="4ky:9r3"
+                                  />
+                                </SelectTrigger>
+                                <SelectContent data-oid="e8rtimh">
+                                  {US_STATES.map((state) => (
+                                    <SelectItem
+                                      key={state}
+                                      value={state}
+                                      data-oid="-szxkwt"
+                                    >
+                                      {state}
+                                    </SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
                             </div>
                           </div>
 
