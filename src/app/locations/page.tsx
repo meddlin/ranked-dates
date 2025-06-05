@@ -140,11 +140,14 @@ export default function LocationsPage() {
 
   const handleSaveEdit = (itemId: string) => {
     // Update the item in the data array
-    _setData(
-      data.map((item) =>
-        item.id === itemId ? { ...item, ...editForm } : item,
-      ),
-    );
+    /**
+     * Replace this with a save to the database
+     */
+    // _setData(
+    //   data.map((item) =>
+    //     item.id === itemId ? { ...item, ...editForm } : item,
+    //   ),
+    // );
 
     // TODO: Send update to API
     console.log("Saving edit:", editForm);
