@@ -208,7 +208,7 @@ export default function Dashboard() {
     <div className="p-6 max-w-7xl mx-auto" data-oid="l.b8psm">
       <div className="mb-8" data-oid="f43a9vr">
         <h1 className="text-3xl font-bold mb-2" data-oid="9zz2rgu">
-          Location Dashboard
+          Data Import
         </h1>
         <p className="text-gray-600" data-oid="pst4_xs">
           Import your Google Maps saved places or view existing locations
