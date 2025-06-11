@@ -64,12 +64,12 @@ export default function RootLayout({
                   Locations
                 </Link>
                 {/* <Link
-                  href="/profile"
-                  className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
-                  data-oid="47za:zk"
-                >
-                  Profile
-                </Link> */}
+                   href="/profile"
+                   className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
+                   data-oid="47za:zk"
+                  >
+                   Profile
+                  </Link> */}
               </SignedIn>
             </nav>
 

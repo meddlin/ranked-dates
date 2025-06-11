@@ -63,6 +63,7 @@ export function LocationCard({
                 className="h-4 w-4 text-orange-500 mt-0.5 flex-shrink-0"
                 data-oid="9xkc2ep"
               />
+
               <p
                 className="text-sm text-gray-600 break-words"
                 data-oid="jx4tqp8"
@@ -147,6 +148,7 @@ export function LocationCard({
                 className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0"
                 data-oid="7cfdabw"
               />
+
               <p
                 className="text-sm text-gray-700 leading-relaxed break-words"
                 data-oid="tu5fs3k"
@@ -193,6 +195,7 @@ export function LocationCard({
                 className="h-4 w-4 group-hover/button:text-orange-600"
                 data-oid="_ab9l35"
               />
+
               <span className="font-medium hidden sm:inline" data-oid="lcyx5-r">
                 Maps
               </span>
