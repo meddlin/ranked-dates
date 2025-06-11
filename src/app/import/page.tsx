@@ -16,7 +16,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-export default function Dashboard() {
+export default function Import() {
   const { isLoaded, isSignedIn, user } = useUser();
   const [data, _setData] = useState<Place[]>([]);
   const [isUploading, setIsUploading] = useState(false);

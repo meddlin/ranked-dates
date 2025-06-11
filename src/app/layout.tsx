@@ -50,26 +50,26 @@ export default function RootLayout({
               </Link>
               <SignedIn data-oid="60y-swz">
                 <Link
-                  href="/dashboard"
+                  href="/import"
                   className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
                   data-oid="hshew29"
                 >
-                  Dashboard
+                  Import
                 </Link>
                 <Link
                   href="/locations"
                   className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
                   data-oid="cng58t_"
                 >
-                  My Places
+                  Locations
                 </Link>
-                <Link
+                {/* <Link
                   href="/profile"
                   className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors"
                   data-oid="47za:zk"
                 >
                   Profile
-                </Link>
+                </Link> */}
               </SignedIn>
             </nav>
 
