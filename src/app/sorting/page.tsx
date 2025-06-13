@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 import {
   Plus,
   GripVertical,
@@ -17,6 +18,7 @@ import {
   Heart,
   Trash2,
   Save,
+  Map,
 } from "lucide-react";
 
 interface DateIdea {
@@ -147,35 +149,45 @@ export default function SortingPage() {
   };
 
   if (!isSignedIn) {
-    return <RedirectToSignIn data-oid="e8tt_fs" />;
+    return <RedirectToSignIn />;
   }
 
   return (
-    <div
-      className="container mx-auto py-6 px-4 sm:py-10 max-w-4xl"
-      data-oid="zk-1k3m"
-    >
-      <div className="space-y-6" data-oid="c9-pitt">
-        {/* Header */}
-        <div className="text-center space-y-2" data-oid="4s:6r:v">
-          <h1 className="text-3xl font-bold tracking-tight" data-oid=":1x.:ns">
+    <div className="container mx-auto py-6 px-4 sm:py-10 max-w-4xl">
+      <div className="space-y-6">
+        <div className="text-center space-y-4">
+          <h1 className="text-3xl font-bold tracking-tight">
             Rank Your Date Ideas
           </h1>
-          <p className="text-muted-foreground" data-oid="k.58d2c">
+          <p className="text-muted-foreground">
             Create and prioritize your perfect date ideas. Drag to reorder by
             preference.
+          </p>
+
+          <div className="flex justify-center">
+            <Link href="/locations">
+              <Button
+                variant="outline"
+                className="text-orange-600 border-orange-200 hover:bg-orange-50"
+              >
+                <Map className="h-4 w-4 mr-2" />
+                Browse Saved Locations
+              </Button>
+            </Link>
+          </div>
+          <p className="text-sm text-gray-500">
+            Need inspiration? Check out your saved places for date ideas
           </p>
         </div>
 
         {/* Add New Idea Button */}
         {!showAddForm && (
-          <div className="flex justify-center" data-oid="tx4wue1">
+          <div className="flex justify-center">
             <Button
               onClick={() => setShowAddForm(true)}
               className="bg-orange-500 hover:bg-orange-600"
-              data-oid="jfdit0n"
             >
-              <Plus className="h-4 w-4 mr-2" data-oid="pfw7hkh" />
+              <Plus className="h-4 w-4 mr-2" />
               Add Date Idea
             </Button>
           </div>
@@ -183,24 +195,21 @@ export default function SortingPage() {
 
         {/* Add Form */}
         {showAddForm && (
-          <Card className="border-orange-200" data-oid="i4_abmc">
-            <CardHeader data-oid="gi5:52s">
-              <h3 className="text-lg font-semibold" data-oid="6j28ls9">
-                Add New Date Idea
-              </h3>
+          <Card className="border-orange-200">
+            <CardHeader>
+              <h3 className="text-lg font-semibold">Add New Date Idea</h3>
             </CardHeader>
-            <CardContent className="space-y-4" data-oid="3bou-nw">
-              <div data-oid="kr0ud1x">
+            <CardContent className="space-y-4">
+              <div>
                 <Input
                   placeholder="Date idea title (e.g., 'Sunset hike at Griffith Observatory')"
                   value={newIdea.title}
                   onChange={(e) =>
                     setNewIdea({ ...newIdea, title: e.target.value })
                   }
-                  data-oid="8n89lfb"
                 />
               </div>
-              <div data-oid="k3wuw8b">
+              <div>
                 <Textarea
                   placeholder="Description or notes about this date idea..."
                   value={newIdea.description}
@@ -208,14 +217,10 @@ export default function SortingPage() {
                     setNewIdea({ ...newIdea, description: e.target.value })
                   }
                   rows={3}
-                  data-oid="f1-ilvq"
                 />
               </div>
-              <div
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-                data-oid="adaiu2:"
-              >
-                <div data-oid="n.kktzc">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
                   <select
                     value={newIdea.category}
                     onChange={(e) =>
@@ -225,48 +230,31 @@ export default function SortingPage() {
                       })
                     }
                     className="w-full p-2 border border-gray-300 rounded-md"
-                    data-oid=".f3v37."
                   >
-                    <option value="restaurant" data-oid="y58427i">
-                      Restaurant
-                    </option>
-                    <option value="coffee" data-oid="vo::441">
-                      Coffee Shop
-                    </option>
-                    <option value="outdoor" data-oid="km-osxd">
-                      Outdoor Activity
-                    </option>
-                    <option value="activity" data-oid="a8z1fyb">
-                      Activity/Entertainment
-                    </option>
-                    <option value="other" data-oid="ysl9kti">
-                      Other
-                    </option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="coffee">Coffee Shop</option>
+                    <option value="outdoor">Outdoor Activity</option>
+                    <option value="activity">Activity/Entertainment</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
-                <div data-oid=".cbfy5f">
+                <div>
                   <Input
                     placeholder="Location (optional)"
                     value={newIdea.location}
                     onChange={(e) =>
                       setNewIdea({ ...newIdea, location: e.target.value })
                     }
-                    data-oid="h0adyxw"
                   />
                 </div>
               </div>
-              <div className="flex gap-2 justify-end" data-oid="gxhv8k6">
-                <Button
-                  variant="outline"
-                  onClick={() => setShowAddForm(false)}
-                  data-oid="s4pxfwn"
-                >
+              <div className="flex gap-2 justify-end">
+                <Button variant="outline" onClick={() => setShowAddForm(false)}>
                   Cancel
                 </Button>
                 <Button
                   onClick={addDateIdea}
                   className="bg-orange-500 hover:bg-orange-600"
-                  data-oid="-lykkog"
                 >
                   Add Idea
                 </Button>
@@ -276,38 +264,37 @@ export default function SortingPage() {
         )}
 
         {/* Date Ideas List */}
-        <div className="space-y-3" data-oid="8nq0r6c">
+        <div className="space-y-3">
           {dateIdeas.length === 0 ? (
-            <Card
-              className="border-dashed border-2 border-gray-300"
-              data-oid="fmou09k"
-            >
-              <CardContent
-                className="flex flex-col items-center justify-center py-12 text-center"
-                data-oid="98ytcip"
-              >
-                <Heart
-                  className="h-12 w-12 text-gray-400 mb-4"
-                  data-oid="inv_5as"
-                />
+            <Card className="border-dashed border-2 border-gray-300">
+              <CardContent className="flex flex-col items-center justify-center py-12 text-center">
+                <Heart className="h-12 w-12 text-gray-400 mb-4" />
 
-                <h3
-                  className="text-lg font-semibold text-gray-600 mb-2"
-                  data-oid="cseo409"
-                >
+                <h3 className="text-lg font-semibold text-gray-600 mb-2">
                   No date ideas yet
                 </h3>
-                <p className="text-gray-500 mb-4" data-oid="qc::81p">
-                  Start building your perfect date list!
+                <p className="text-gray-500 mb-4">
+                  Start building your perfect date list! Use your saved
+                  locations for inspiration.
                 </p>
-                <Button
-                  onClick={() => setShowAddForm(true)}
-                  className="bg-orange-500 hover:bg-orange-600"
-                  data-oid=".c0x_kv"
-                >
-                  <Plus className="h-4 w-4 mr-2" data-oid="4.fbyjt" />
-                  Add Your First Idea
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Button
+                    onClick={() => setShowAddForm(true)}
+                    className="bg-orange-500 hover:bg-orange-600"
+                  >
+                    <Plus className="h-4 w-4 mr-2" />
+                    Add Your First Idea
+                  </Button>
+                  <Link href="/locations">
+                    <Button
+                      variant="outline"
+                      className="text-orange-600 border-orange-200 hover:bg-orange-50"
+                    >
+                      <Map className="h-4 w-4 mr-2" />
+                      View Saved Locations
+                    </Button>
+                  </Link>
+                </div>
               </CardContent>
             </Card>
           ) : (
@@ -321,90 +308,55 @@ export default function SortingPage() {
                   onDragStart={(e) => handleDragStart(e, idea.id)}
                   onDragOver={handleDragOver}
                   onDrop={(e) => handleDrop(e, idea.id)}
-                  data-oid="n2ppkzg"
                 >
-                  <CardContent className="p-4" data-oid="4f5a6fn">
-                    <div className="flex items-start gap-4" data-oid="-r-1cl0">
+                  <CardContent className="p-4">
+                    <div className="flex items-start gap-4">
                       {/* Rank Number */}
-                      <div
-                        className="flex-shrink-0 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm"
-                        data-oid="x9lpcni"
-                      >
+                      <div className="flex-shrink-0 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">
                         {idea.rank}
                       </div>
 
                       {/* Drag Handle */}
-                      <div className="flex-shrink-0 mt-1" data-oid="6sc74_y">
-                        <GripVertical
-                          className="h-5 w-5 text-gray-400"
-                          data-oid="fdp1h:r"
-                        />
+                      <div className="flex-shrink-0 mt-1">
+                        <GripVertical className="h-5 w-5 text-gray-400" />
                       </div>
 
                       {/* Content */}
-                      <div className="flex-1 min-w-0" data-oid=".7pah3p">
-                        <div
-                          className="flex items-start justify-between gap-4"
-                          data-oid="-7sgu09"
-                        >
-                          <div className="flex-1" data-oid="-7:r2yp">
-                            <div
-                              className="flex items-center gap-2 mb-2"
-                              data-oid="bwpk139"
-                            >
-                              <IconComponent
-                                className="h-4 w-4 text-gray-600"
-                                data-oid="as08p::"
-                              />
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-2">
+                              <IconComponent className="h-4 w-4 text-gray-600" />
 
-                              <h3
-                                className="font-semibold text-lg"
-                                data-oid="_dgoixt"
-                              >
+                              <h3 className="font-semibold text-lg">
                                 {idea.title}
                               </h3>
-                              <Badge
-                                className={categoryColors[idea.category]}
-                                data-oid="kjtp8lb"
-                              >
+                              <Badge className={categoryColors[idea.category]}>
                                 {idea.category}
                               </Badge>
                             </div>
                             {idea.location && (
-                              <div
-                                className="flex items-center gap-1 text-sm text-gray-600 mb-2"
-                                data-oid="uf60kaz"
-                              >
-                                <MapPin
-                                  className="h-3 w-3"
-                                  data-oid="..:2ssv"
-                                />
+                              <div className="flex items-center gap-1 text-sm text-gray-600 mb-2">
+                                <MapPin className="h-3 w-3" />
 
                                 {idea.location}
                               </div>
                             )}
                             {idea.description && (
-                              <p
-                                className="text-gray-700 text-sm"
-                                data-oid="b67ih.0"
-                              >
+                              <p className="text-gray-700 text-sm">
                                 {idea.description}
                               </p>
                             )}
                           </div>
 
                           {/* Actions */}
-                          <div
-                            className="flex flex-col gap-1"
-                            data-oid="ren2vb8"
-                          >
+                          <div className="flex flex-col gap-1">
                             <Button
                               variant="ghost"
                               size="sm"
                               onClick={() => moveUp(idea.id)}
                               disabled={idea.rank === 1}
                               className="h-8 w-8 p-0"
-                              data-oid="7-eifky"
                             >
                               ↑
                             </Button>
@@ -414,7 +366,6 @@ export default function SortingPage() {
                               onClick={() => moveDown(idea.id)}
                               disabled={idea.rank === dateIdeas.length}
                               className="h-8 w-8 p-0"
-                              data-oid="_:av4z4"
                             >
                               ↓
                             </Button>
@@ -423,9 +374,8 @@ export default function SortingPage() {
                               size="sm"
                               onClick={() => removeIdea(idea.id)}
                               className="h-8 w-8 p-0 text-red-500 hover:text-red-700"
-                              data-oid="03xdfb2"
                             >
-                              <Trash2 className="h-4 w-4" data-oid="zv3zbn9" />
+                              <Trash2 className="h-4 w-4" />
                             </Button>
                           </div>
                         </div>
@@ -440,12 +390,9 @@ export default function SortingPage() {
 
         {/* Save Button */}
         {dateIdeas.length > 0 && (
-          <div className="flex justify-center pt-6" data-oid="tzsh8lh">
-            <Button
-              className="bg-green-600 hover:bg-green-700"
-              data-oid="un7zg8g"
-            >
-              <Save className="h-4 w-4 mr-2" data-oid="nrbeu9n" />
+          <div className="flex justify-center pt-6">
+            <Button className="bg-green-600 hover:bg-green-700">
+              <Save className="h-4 w-4 mr-2" />
               Save Rankings
             </Button>
           </div>
