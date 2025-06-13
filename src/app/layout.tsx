@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import "./globals.css";
 export const metadata: Metadata = {
-  title: "Ranked Dates",
+  title: "Pinmark",
   description: "Track and ideas to make date night easier!",
 };
 export default function RootLayout({

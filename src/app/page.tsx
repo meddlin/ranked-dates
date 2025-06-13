@@ -55,7 +55,7 @@ export default function Home() {
                 <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
                   <div className="bg-orange-500 px-4 py-6 text-white">
                     <div className="flex items-center justify-between mb-4">
-                      <h1 className="text-xl font-bold">Ranked Dates</h1>
+                      <h1 className="text-xl font-bold">Pinmark</h1>
                       <div className="w-8 h-8 bg-white/20 rounded-full"></div>
                     </div>
                     <p className="text-orange-100 text-sm">
