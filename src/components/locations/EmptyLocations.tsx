@@ -2,7 +2,11 @@ import { MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-export function EmptyLocations() {
+interface EmptyLocationsProps {
+  onAddLocation: () => void;
+}
+
+export function EmptyLocations({ onAddLocation }: EmptyLocationsProps) {
   return (
     <div className="col-span-full" data-oid="qx05665">
       <Card
@@ -24,6 +28,7 @@ export function EmptyLocations() {
             Start building your collection of favorite places and date spots.
           </p>
           <Button
+            onClick={onAddLocation}
             className="bg-orange-500 hover:bg-orange-600"
             data-oid="33vs_ux"
           >

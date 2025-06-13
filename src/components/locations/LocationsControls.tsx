@@ -1,18 +1,21 @@
-import { MapPin, LayoutGrid, LayoutList } from "lucide-react";
+import { MapPin, LayoutGrid, LayoutList, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 interface LocationsControlsProps {
   viewMode: "grid" | "list";
   onViewModeChange: (mode: "grid" | "list") => void;
   onSearch: (query: string) => void;
+  onAddLocation: () => void;
 }
 
 export function LocationsControls({
   viewMode,
   onViewModeChange,
   onSearch,
+  onAddLocation,
 }: LocationsControlsProps) {
   return (
     <div
@@ -40,6 +43,15 @@ export function LocationsControls({
       </div>
 
       <div className="flex items-center gap-3" data-oid="ddvatlv">
+        <Button
+          onClick={onAddLocation}
+          className="bg-green-600 hover:bg-green-700 text-white"
+          size="sm"
+          data-oid="add-location-btn"
+        >
+          <Plus className="h-4 w-4 mr-2" data-oid="ogqqtsd" />
+          Add Location
+        </Button>
         <span
           className="text-sm text-gray-600 hidden sm:block"
           data-oid="5.uot:s"

@@ -9,6 +9,7 @@ import { LocationsControls } from "@/components/locations/LocationsControls";
 import { EmptyLocations } from "@/components/locations/EmptyLocations";
 import { LocationCard } from "@/components/locations/LocationCard";
 import { LocationEditForm } from "@/components/locations/LocationEditForm";
+import { LocationCreateForm } from "@/components/locations/LocationCreateForm";
 
 export default function LocationsPage() {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -19,6 +20,8 @@ export default function LocationsPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editForm, setEditForm] = useState<Partial<Place>>({});
   const [searchQuery, setSearchQuery] = useState("");
+  const [isCreating, setIsCreating] = useState(false);
+  const [createForm, setCreateForm] = useState<Partial<Place>>({});
 
   // Get unique list names for filtering
   const listNames = [...new Set(data.map((item) => item.list))];
@@ -82,6 +85,49 @@ export default function LocationsPage() {
     console.log("Copied to clipboard:", locationText);
   };
 
+  const handleAddLocation = () => {
+    setIsCreating(true);
+    setCreateForm({});
+  };
+
+  const handleCancelCreate = () => {
+    setIsCreating(false);
+    setCreateForm({});
+  };
+
+  const handleSaveCreate = async () => {
+    if (!user || !createForm.name || !createForm.city || !createForm.state) {
+      return;
+    }
+
+    try {
+      // Generate a temporary ID for the new location
+      const newLocation: Place = {
+        id: Date.now().toString(),
+        name: createForm.name,
+        location: createForm.location || "",
+        city: createForm.city,
+        state: createForm.state,
+        google_maps_link: createForm.google_maps_link || "",
+        list: createForm.list || "Default",
+        notes: createForm.notes || "",
+      };
+
+      // TODO: Send create request to API
+      console.log("Creating new location:", newLocation);
+
+      // For now, add to local state
+      _setData([...data, newLocation]);
+
+      // Reset creation state
+      setIsCreating(false);
+      setCreateForm({});
+    } catch (error) {
+      console.error("Error creating location:", error);
+      // TODO: Show error toast
+    }
+  };
+
   useEffect(() => {
     if (!user) return;
 
@@ -110,6 +156,7 @@ export default function LocationsPage() {
               viewMode={viewMode}
               onViewModeChange={setViewMode}
               onSearch={setSearchQuery}
+              onAddLocation={handleAddLocation}
               data-oid="zsg:7:r"
             />
 
@@ -130,13 +177,37 @@ export default function LocationsPage() {
               </TabsList>
             </Tabs>
 
-            {data.length === 0 ? (
-              <EmptyLocations data-oid="mlc.00a" />
+            {isCreating && (
+              <LocationCreateForm
+                createForm={createForm}
+                onCreateFormChange={setCreateForm}
+                onSave={handleSaveCreate}
+                onCancel={handleCancelCreate}
+                existingLists={listNames}
+                data-oid="create-location-form"
+              />
+            )}
+
+            {data.length === 0 && !isCreating ? (
+              <EmptyLocations
+                onAddLocation={handleAddLocation}
+                data-oid="mlc.00a"
+              />
             ) : viewMode === "grid" ? (
               <div
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
                 data-oid="kd:_vqd"
               >
+                {isCreating && (
+                  <LocationCreateForm
+                    createForm={createForm}
+                    onCreateFormChange={setCreateForm}
+                    onSave={handleSaveCreate}
+                    onCancel={handleCancelCreate}
+                    existingLists={listNames}
+                    data-oid="create-location-form-grid"
+                  />
+                )}
                 {filteredData.map((item) =>
                   editingId === item.id ? (
                     <LocationEditForm
@@ -163,6 +234,16 @@ export default function LocationsPage() {
               </div>
             ) : (
               <div className="flex flex-col space-y-4" data-oid="d0b3m-_">
+                {isCreating && (
+                  <LocationCreateForm
+                    createForm={createForm}
+                    onCreateFormChange={setCreateForm}
+                    onSave={handleSaveCreate}
+                    onCancel={handleCancelCreate}
+                    existingLists={listNames}
+                    data-oid="create-location-form-list"
+                  />
+                )}
                 {filteredData.map((item) =>
                   editingId === item.id ? (
                     <LocationEditForm
