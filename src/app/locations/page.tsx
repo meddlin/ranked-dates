@@ -95,23 +95,34 @@ export default function LocationsPage() {
   return (
     <>
       {isSignedIn ? (
-        <div className="container mx-auto py-6 px-4 sm:py-10">
-          <div className="flex flex-col space-y-6">
-            <LocationsHeader data={data} listNames={listNames} />
+        <div
+          className="container mx-auto py-6 px-4 sm:py-10"
+          data-oid="766_srp"
+        >
+          <div className="flex flex-col space-y-6" data-oid="sfqt5qs">
+            <LocationsHeader
+              data={data}
+              listNames={listNames}
+              data-oid="_lytnjv"
+            />
 
             <LocationsControls
               viewMode={viewMode}
               onViewModeChange={setViewMode}
               onSearch={setSearchQuery}
+              data-oid="zsg:7:r"
             />
 
-            <Tabs defaultValue="all">
-              <TabsList>
-                <TabsTrigger value="all">All</TabsTrigger>
+            <Tabs defaultValue="all" data-oid="-79pdks">
+              <TabsList data-oid=".qrl5wm">
+                <TabsTrigger value="all" data-oid="ojo1z8s">
+                  All
+                </TabsTrigger>
                 {listNames.map((list) => (
                   <TabsTrigger
                     key={list}
                     value={list.toLowerCase().replace(/\s+/g, "-")}
+                    data-oid=":7s-42x"
                   >
                     {list}
                   </TabsTrigger>
@@ -120,9 +131,12 @@ export default function LocationsPage() {
             </Tabs>
 
             {data.length === 0 ? (
-              <EmptyLocations />
+              <EmptyLocations data-oid="mlc.00a" />
             ) : viewMode === "grid" ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              <div
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+                data-oid="kd:_vqd"
+              >
                 {filteredData.map((item) =>
                   editingId === item.id ? (
                     <LocationEditForm
@@ -132,6 +146,7 @@ export default function LocationsPage() {
                       onEditFormChange={setEditForm}
                       onSave={() => handleSaveEdit(item.id)}
                       onCancel={handleCancelEdit}
+                      data-oid="ta0n_o0"
                     />
                   ) : (
                     <LocationCard
@@ -141,12 +156,13 @@ export default function LocationsPage() {
                       onDelete={handleDelete}
                       onToggleFavorite={handleToggleFavorite}
                       onCopyLocation={handleCopyLocation}
+                      data-oid="op_79qa"
                     />
                   ),
                 )}
               </div>
             ) : (
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-4" data-oid="d0b3m-_">
                 {filteredData.map((item) =>
                   editingId === item.id ? (
                     <LocationEditForm
@@ -156,6 +172,7 @@ export default function LocationsPage() {
                       onEditFormChange={setEditForm}
                       onSave={() => handleSaveEdit(item.id)}
                       onCancel={handleCancelEdit}
+                      data-oid="qa8jv6w"
                     />
                   ) : (
                     <LocationCard
@@ -165,6 +182,7 @@ export default function LocationsPage() {
                       onDelete={handleDelete}
                       onToggleFavorite={handleToggleFavorite}
                       onCopyLocation={handleCopyLocation}
+                      data-oid="o5itoo."
                     />
                   ),
                 )}
@@ -173,7 +191,7 @@ export default function LocationsPage() {
           </div>
         </div>
       ) : (
-        <RedirectToSignIn />
+        <RedirectToSignIn data-oid="p0y-bb0" />
       )}
     </>
   );
