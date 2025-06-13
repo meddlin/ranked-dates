@@ -98,7 +98,7 @@ export default function LocationsPage() {
         <div className="container mx-auto py-6 px-4 sm:py-10">
           <div className="flex flex-col space-y-6">
             <LocationsHeader data={data} listNames={listNames} />
-            
+
             <LocationsControls
               viewMode={viewMode}
               onViewModeChange={setViewMode}
@@ -123,7 +123,7 @@ export default function LocationsPage() {
               <EmptyLocations />
             ) : viewMode === "grid" ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                {filteredData.map((item) => (
+                {filteredData.map((item) =>
                   editingId === item.id ? (
                     <LocationEditForm
                       key={item.id}
@@ -142,12 +142,12 @@ export default function LocationsPage() {
                       onToggleFavorite={handleToggleFavorite}
                       onCopyLocation={handleCopyLocation}
                     />
-                  )
-                ))}
+                  ),
+                )}
               </div>
             ) : (
               <div className="flex flex-col space-y-4">
-                {filteredData.map((item) => (
+                {filteredData.map((item) =>
                   editingId === item.id ? (
                     <LocationEditForm
                       key={item.id}
@@ -166,8 +166,8 @@ export default function LocationsPage() {
                       onToggleFavorite={handleToggleFavorite}
                       onCopyLocation={handleCopyLocation}
                     />
-                  )
-                ))}
+                  ),
+                )}
               </div>
             )}
           </div>

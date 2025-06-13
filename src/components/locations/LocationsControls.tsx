@@ -22,6 +22,7 @@ export function LocationsControls({
         </Label>
         <div className="relative">
           <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+
           <Input
             id="search"
             placeholder="Search by name or location..."
@@ -36,7 +37,9 @@ export function LocationsControls({
         <ToggleGroup
           type="single"
           value={viewMode}
-          onValueChange={(value) => value && onViewModeChange(value as "grid" | "list")}
+          onValueChange={(value) =>
+            value && onViewModeChange(value as "grid" | "list")
+          }
           className="border border-gray-200 rounded-lg p-1"
         >
           <ToggleGroupItem
@@ -57,4 +60,4 @@ export function LocationsControls({
       </div>
     </div>
   );
-} 
+}

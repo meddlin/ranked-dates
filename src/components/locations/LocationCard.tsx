@@ -1,9 +1,23 @@
-import { MapPin, FileText, ExternalLink, Edit, MoreVertical, Copy, Star, Trash2 } from "lucide-react";
+import {
+  MapPin,
+  FileText,
+  ExternalLink,
+  Edit,
+  MoreVertical,
+  Copy,
+  Star,
+  Trash2,
+} from "lucide-react";
 import Link from "next/link";
 import { Place } from "@/types/DateIdea";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -37,6 +51,7 @@ export function LocationCard({
             </h3>
             <div className="flex items-start gap-2">
               <MapPin className="h-4 w-4 text-orange-500 mt-0.5 flex-shrink-0" />
+
               <p className="text-sm text-gray-600 break-words">
                 {item.city}, {item.state}
               </p>
@@ -44,7 +59,10 @@ export function LocationCard({
           </div>
 
           <div className="flex items-center gap-2 flex-shrink-0">
-            <Badge variant="secondary" className="bg-orange-100 text-orange-800 hover:bg-orange-200 font-medium">
+            <Badge
+              variant="secondary"
+              className="bg-orange-100 text-orange-800 hover:bg-orange-200 font-medium"
+            >
               {item.list}
             </Badge>
 
@@ -91,6 +109,7 @@ export function LocationCard({
           <div className="bg-gray-50 rounded-lg p-3">
             <div className="flex items-start gap-2">
               <FileText className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
+
               <p className="text-sm text-gray-700 leading-relaxed break-words">
                 {item.notes}
               </p>
@@ -123,6 +142,7 @@ export function LocationCard({
               className="flex items-center justify-center gap-2"
             >
               <MapPin className="h-4 w-4 group-hover/button:text-orange-600" />
+
               <span className="font-medium hidden sm:inline">Maps</span>
               <ExternalLink className="h-3 w-3 group-hover/button:text-orange-600" />
             </Link>
@@ -131,4 +151,4 @@ export function LocationCard({
       </CardFooter>
     </Card>
   );
-} 
+}
