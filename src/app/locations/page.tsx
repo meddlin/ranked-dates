@@ -102,16 +102,15 @@ export default function LocationsPage() {
 
     try {
       // Generate a temporary ID for the new location
-      const newLocation: Place = {
-        id: Date.now().toString(),
-        name: createForm.name,
-        location: createForm.location || "",
-        city: createForm.city,
-        state: createForm.state,
-        google_maps_link: createForm.google_maps_link || "",
-        list: createForm.list || "Default",
-        notes: createForm.notes || "",
-      };
+      const newLocation = new Place();
+      newLocation.id = Date.now().toString();
+      newLocation.name = createForm.name;
+      newLocation.location = createForm.location || "";
+      newLocation.city = createForm.city;
+      newLocation.state = createForm.state;
+      newLocation.google_maps_link = createForm.google_maps_link || "";
+      newLocation.list = createForm.list || "Default";
+      newLocation.notes = createForm.notes || "";
 
       // TODO: Send create request to API
       console.log("Creating new location:", newLocation);
