@@ -9,6 +9,7 @@ import { LocationsControls } from "@/components/locations/LocationsControls";
 import { EmptyLocations } from "@/components/locations/EmptyLocations";
 import { LocationCard } from "@/components/locations/LocationCard";
 import { LocationEditForm } from "@/components/locations/LocationEditForm";
+import { LocationCreateForm } from "@/components/locations/LocationCreateForm";
 
 export default function LocationsPage() {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -19,6 +20,8 @@ export default function LocationsPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editForm, setEditForm] = useState<Partial<Place>>({});
   const [searchQuery, setSearchQuery] = useState("");
+  const [isCreating, setIsCreating] = useState(false);
+  const [createForm, setCreateForm] = useState<Partial<Place>>({});
 
   // Get unique list names for filtering
   const listNames = [...new Set(data.map((item) => item.list))];
@@ -82,6 +85,48 @@ export default function LocationsPage() {
     console.log("Copied to clipboard:", locationText);
   };
 
+  const handleAddLocation = () => {
+    setIsCreating(true);
+    setCreateForm({});
+  };
+
+  const handleCancelCreate = () => {
+    setIsCreating(false);
+    setCreateForm({});
+  };
+
+  const handleSaveCreate = async () => {
+    if (!user || !createForm.name || !createForm.city || !createForm.state) {
+      return;
+    }
+
+    try {
+      // Generate a temporary ID for the new location
+      const newLocation = new Place();
+      newLocation.id = Date.now().toString();
+      newLocation.name = createForm.name;
+      newLocation.location = createForm.location || "";
+      newLocation.city = createForm.city;
+      newLocation.state = createForm.state;
+      newLocation.google_maps_link = createForm.google_maps_link || "";
+      newLocation.list = createForm.list || "Default";
+      newLocation.notes = createForm.notes || "";
+
+      // TODO: Send create request to API
+      console.log("Creating new location:", newLocation);
+
+      // For now, add to local state
+      _setData([...data, newLocation]);
+
+      // Reset creation state
+      setIsCreating(false);
+      setCreateForm({});
+    } catch (error) {
+      console.error("Error creating location:", error);
+      // TODO: Show error toast
+    }
+  };
+
   useEffect(() => {
     if (!user) return;
 
@@ -95,23 +140,35 @@ export default function LocationsPage() {
   return (
     <>
       {isSignedIn ? (
-        <div className="container mx-auto py-6 px-4 sm:py-10">
-          <div className="flex flex-col space-y-6">
-            <LocationsHeader data={data} listNames={listNames} />
+        <div
+          className="container mx-auto py-6 px-4 sm:py-10"
+          data-oid="766_srp"
+        >
+          <div className="flex flex-col space-y-6" data-oid="sfqt5qs">
+            <LocationsHeader
+              data={data}
+              listNames={listNames}
+              data-oid="_lytnjv"
+            />
 
             <LocationsControls
               viewMode={viewMode}
               onViewModeChange={setViewMode}
               onSearch={setSearchQuery}
+              onAddLocation={handleAddLocation}
+              data-oid="zsg:7:r"
             />
 
-            <Tabs defaultValue="all">
-              <TabsList>
-                <TabsTrigger value="all">All</TabsTrigger>
+            <Tabs defaultValue="all" data-oid="-79pdks">
+              <TabsList data-oid=".qrl5wm">
+                <TabsTrigger value="all" data-oid="ojo1z8s">
+                  All
+                </TabsTrigger>
                 {listNames.map((list) => (
                   <TabsTrigger
                     key={list}
                     value={list.toLowerCase().replace(/\s+/g, "-")}
+                    data-oid=":7s-42x"
                   >
                     {list}
                   </TabsTrigger>
@@ -119,10 +176,37 @@ export default function LocationsPage() {
               </TabsList>
             </Tabs>
 
-            {data.length === 0 ? (
-              <EmptyLocations />
+            {isCreating && (
+              <LocationCreateForm
+                createForm={createForm}
+                onCreateFormChange={setCreateForm}
+                onSave={handleSaveCreate}
+                onCancel={handleCancelCreate}
+                existingLists={listNames}
+                data-oid="create-location-form"
+              />
+            )}
+
+            {data.length === 0 && !isCreating ? (
+              <EmptyLocations
+                onAddLocation={handleAddLocation}
+                data-oid="mlc.00a"
+              />
             ) : viewMode === "grid" ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              <div
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+                data-oid="kd:_vqd"
+              >
+                {isCreating && (
+                  <LocationCreateForm
+                    createForm={createForm}
+                    onCreateFormChange={setCreateForm}
+                    onSave={handleSaveCreate}
+                    onCancel={handleCancelCreate}
+                    existingLists={listNames}
+                    data-oid="create-location-form-grid"
+                  />
+                )}
                 {filteredData.map((item) =>
                   editingId === item.id ? (
                     <LocationEditForm
@@ -132,6 +216,7 @@ export default function LocationsPage() {
                       onEditFormChange={setEditForm}
                       onSave={() => handleSaveEdit(item.id)}
                       onCancel={handleCancelEdit}
+                      data-oid="ta0n_o0"
                     />
                   ) : (
                     <LocationCard
@@ -141,12 +226,23 @@ export default function LocationsPage() {
                       onDelete={handleDelete}
                       onToggleFavorite={handleToggleFavorite}
                       onCopyLocation={handleCopyLocation}
+                      data-oid="op_79qa"
                     />
                   ),
                 )}
               </div>
             ) : (
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-4" data-oid="d0b3m-_">
+                {isCreating && (
+                  <LocationCreateForm
+                    createForm={createForm}
+                    onCreateFormChange={setCreateForm}
+                    onSave={handleSaveCreate}
+                    onCancel={handleCancelCreate}
+                    existingLists={listNames}
+                    data-oid="create-location-form-list"
+                  />
+                )}
                 {filteredData.map((item) =>
                   editingId === item.id ? (
                     <LocationEditForm
@@ -156,6 +252,7 @@ export default function LocationsPage() {
                       onEditFormChange={setEditForm}
                       onSave={() => handleSaveEdit(item.id)}
                       onCancel={handleCancelEdit}
+                      data-oid="qa8jv6w"
                     />
                   ) : (
                     <LocationCard
@@ -165,6 +262,7 @@ export default function LocationsPage() {
                       onDelete={handleDelete}
                       onToggleFavorite={handleToggleFavorite}
                       onCopyLocation={handleCopyLocation}
+                      data-oid="o5itoo."
                     />
                   ),
                 )}
@@ -173,7 +271,7 @@ export default function LocationsPage() {
           </div>
         </div>
       ) : (
-        <RedirectToSignIn />
+        <RedirectToSignIn data-oid="p0y-bb0" />
       )}
     </>
   );

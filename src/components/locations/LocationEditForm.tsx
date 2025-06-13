@@ -87,24 +87,37 @@ export function LocationEditForm({
   onCancel,
 }: LocationEditFormProps) {
   return (
-    <Card className="group overflow-hidden transition-all duration-200 border-0 shadow-sm bg-white ring-2 ring-orange-200 shadow-lg">
-      <CardHeader className="pb-4 p-4 sm:p-6 bg-orange-50">
-        <div className="flex items-center justify-between">
-          <h3 className="font-semibold text-lg text-gray-900">Edit Location</h3>
+    <Card
+      className="group overflow-hidden transition-all duration-200 border-0 shadow-sm bg-white ring-2 ring-orange-200 shadow-lg"
+      data-oid=":y_47.."
+    >
+      <CardHeader className="pb-4 p-4 sm:p-6 bg-orange-50" data-oid="nfnbx.q">
+        <div className="flex items-center justify-between" data-oid="74zxo.g">
+          <h3
+            className="font-semibold text-lg text-gray-900"
+            data-oid="ftaxch6"
+          >
+            Edit Location
+          </h3>
           <Button
             variant="ghost"
             size="sm"
             onClick={onCancel}
             className="h-8 w-8 p-0"
+            data-oid="r6xw80v"
           >
-            <X className="h-4 w-4" />
+            <X className="h-4 w-4" data-oid="irdo924" />
           </Button>
         </div>
       </CardHeader>
 
-      <CardContent className="p-4 sm:p-6 space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor={`name-${item.id}`} className="text-sm font-medium">
+      <CardContent className="p-4 sm:p-6 space-y-4" data-oid="36swrce">
+        <div className="space-y-2" data-oid="bm7v23w">
+          <Label
+            htmlFor={`name-${item.id}`}
+            className="text-sm font-medium"
+            data-oid="f-:pdw0"
+          >
             Location Name
           </Label>
           <Input
@@ -113,12 +126,17 @@ export function LocationEditForm({
             onChange={(e) => onEditFormChange({ name: e.target.value })}
             placeholder="Enter location name"
             className="w-full"
+            data-oid="o..-:57"
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
-          <div className="space-y-2">
-            <Label htmlFor={`city-${item.id}`} className="text-sm font-medium">
+        <div className="grid grid-cols-2 gap-3" data-oid="a08y:od">
+          <div className="space-y-2" data-oid="fwifffi">
+            <Label
+              htmlFor={`city-${item.id}`}
+              className="text-sm font-medium"
+              data-oid="7gv6mfp"
+            >
               City
             </Label>
             <Input
@@ -126,22 +144,28 @@ export function LocationEditForm({
               value={editForm.city || ""}
               onChange={(e) => onEditFormChange({ city: e.target.value })}
               placeholder="City"
+              data-oid="od2j2rs"
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor={`state-${item.id}`} className="text-sm font-medium">
+          <div className="space-y-2" data-oid="7q863f-">
+            <Label
+              htmlFor={`state-${item.id}`}
+              className="text-sm font-medium"
+              data-oid="r2tzig1"
+            >
               State
             </Label>
             <Select
               value={editForm.state || ""}
               onValueChange={(value) => onEditFormChange({ state: value })}
+              data-oid="la22fc."
             >
-              <SelectTrigger>
-                <SelectValue placeholder="Select state" />
+              <SelectTrigger data-oid="_gsgqwq">
+                <SelectValue placeholder="Select state" data-oid="hmkeu60" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent data-oid="v_u5nb-">
                 {US_STATES.map((state) => (
-                  <SelectItem key={state} value={state}>
+                  <SelectItem key={state} value={state} data-oid="vx4l7ej">
                     {state}
                   </SelectItem>
                 ))}
@@ -150,8 +174,12 @@ export function LocationEditForm({
           </div>
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor={`list-${item.id}`} className="text-sm font-medium">
+        <div className="space-y-2" data-oid="8g0vmiu">
+          <Label
+            htmlFor={`list-${item.id}`}
+            className="text-sm font-medium"
+            data-oid="--9q3yp"
+          >
             List
           </Label>
           <Input
@@ -159,11 +187,16 @@ export function LocationEditForm({
             value={editForm.list || ""}
             onChange={(e) => onEditFormChange({ list: e.target.value })}
             placeholder="List name"
+            data-oid="jgnxrvy"
           />
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor={`notes-${item.id}`} className="text-sm font-medium">
+        <div className="space-y-2" data-oid="t7ktpl7">
+          <Label
+            htmlFor={`notes-${item.id}`}
+            className="text-sm font-medium"
+            data-oid="mp-9:u-"
+          >
             Notes
           </Label>
           <Textarea
@@ -173,11 +206,16 @@ export function LocationEditForm({
             placeholder="Add notes about this location..."
             rows={3}
             className="resize-none"
+            data-oid="9i5vi8e"
           />
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor={`maps-${item.id}`} className="text-sm font-medium">
+        <div className="space-y-2" data-oid="8_8c410">
+          <Label
+            htmlFor={`maps-${item.id}`}
+            className="text-sm font-medium"
+            data-oid=".abwwnk"
+          >
             Google Maps Link
           </Label>
           <Input
@@ -188,17 +226,19 @@ export function LocationEditForm({
             }
             placeholder="https://maps.google.com/..."
             type="url"
+            data-oid="yf.l_ai"
           />
         </div>
       </CardContent>
 
-      <CardFooter className="bg-gray-50 p-4 sm:p-6">
-        <div className="flex gap-2 w-full">
+      <CardFooter className="bg-gray-50 p-4 sm:p-6" data-oid="wawmq:d">
+        <div className="flex gap-2 w-full" data-oid="ucjnvnd">
           <Button
             variant="outline"
             size="sm"
             onClick={onCancel}
             className="flex-1"
+            data-oid="221iig0"
           >
             Cancel
           </Button>
@@ -206,8 +246,9 @@ export function LocationEditForm({
             size="sm"
             onClick={onSave}
             className="flex-1 bg-orange-500 hover:bg-orange-600"
+            data-oid="qgq3wwk"
           >
-            <Save className="h-4 w-4 mr-2" />
+            <Save className="h-4 w-4 mr-2" data-oid="hz:-wls" />
             Save Changes
           </Button>
         </div>

@@ -171,7 +171,7 @@ export default function Import() {
       footer: (info) => info.column.id,
     }),
     columnHelper.accessor("google_maps_link", {
-      header: (info) => <span>Maps</span>,
+      header: (info) => <span data-oid="lxeg8oa">Maps</span>,
       cell: (info) => {
         const url = info.getValue();
         return url ? (
@@ -180,6 +180,7 @@ export default function Import() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:text-blue-800 underline"
+            data-oid="6:km:1n"
           >
             View on Maps
           </a>
@@ -204,21 +205,26 @@ export default function Import() {
   });
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Data Import</h1>
-        <p className="text-gray-600">
+    <div className="p-6 max-w-7xl mx-auto" data-oid="6n-paov">
+      <div className="mb-8" data-oid="2whdo9b">
+        <h1 className="text-3xl font-bold mb-2" data-oid="on1:spm">
+          Data Import
+        </h1>
+        <p className="text-gray-600" data-oid="xzw7:te">
           Import your Google Maps saved places or view existing locations
         </p>
       </div>
 
       {/* CSV Upload Section */}
-      <div className="mb-8 p-6 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50">
-        <div className="text-center">
-          <h2 className="text-xl font-semibold mb-4">
+      <div
+        className="mb-8 p-6 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50"
+        data-oid="9.yufnf"
+      >
+        <div className="text-center" data-oid="8v192ub">
+          <h2 className="text-xl font-semibold mb-4" data-oid="x93kt-4">
             Import Google Maps Data
           </h2>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-600 mb-4" data-oid="5v6d6hp">
             Upload your CSV file from Google Takeout to import your saved places
           </p>
 
@@ -232,6 +238,7 @@ export default function Import() {
             onDragLeave={handleDrag}
             onDragOver={handleDrag}
             onDrop={handleDrop}
+            data-oid="_c5zn2g"
           >
             <input
               type="file"
@@ -239,34 +246,45 @@ export default function Import() {
               onChange={handleFileInputChange}
               className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
               disabled={isUploading}
+              data-oid="v.dvx-b"
             />
 
-            <div className="text-center">
+            <div className="text-center" data-oid="jpvpd0p">
               <svg
                 className="mx-auto h-12 w-12 text-gray-400 mb-4"
                 stroke="currentColor"
                 fill="none"
                 viewBox="0 0 48 48"
+                data-oid="ywlw-hn"
               >
                 <path
                   d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  data-oid="xe-nz4v"
                 />
               </svg>
 
               {isUploading ? (
-                <div>
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-2"></div>
-                  <p className="text-blue-600">Processing...</p>
+                <div data-oid="1ypa9c.">
+                  <div
+                    className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-2"
+                    data-oid="-u:uxyg"
+                  ></div>
+                  <p className="text-blue-600" data-oid="e5-2mak">
+                    Processing...
+                  </p>
                 </div>
               ) : (
-                <div>
-                  <p className="text-lg font-medium text-gray-900 mb-2">
+                <div data-oid="6i.4gh.">
+                  <p
+                    className="text-lg font-medium text-gray-900 mb-2"
+                    data-oid="6t88ivn"
+                  >
                     Drop your CSV file here, or click to browse
                   </p>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-500" data-oid="ejpepkb">
                     Supports CSV files from Google Takeout
                   </p>
                 </div>
@@ -284,6 +302,7 @@ export default function Import() {
                     ? "bg-red-50 text-red-800 border border-red-200"
                     : "bg-blue-50 text-blue-800 border border-blue-200"
               }`}
+              data-oid="kgk2w7c"
             >
               {uploadStatus}
             </div>
@@ -293,22 +312,32 @@ export default function Import() {
 
       {/* Data Table Section */}
       {data.length > 0 && (
-        <div className="bg-white rounded-lg shadow overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold">
+        <div
+          className="bg-white rounded-lg shadow overflow-hidden"
+          data-oid="6qbgprh"
+        >
+          <div
+            className="px-6 py-4 border-b border-gray-200"
+            data-oid="wa73obj"
+          >
+            <h2 className="text-xl font-semibold" data-oid="d668b_y">
               Your Saved Places ({data.length})
             </h2>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+          <div className="overflow-x-auto" data-oid="63:6va8">
+            <table
+              className="min-w-full divide-y divide-gray-200"
+              data-oid="rnsq-ua"
+            >
+              <thead className="bg-gray-50" data-oid="j3wyllb">
                 {table.getHeaderGroups().map((headerGroup) => (
-                  <tr key={headerGroup.id}>
+                  <tr key={headerGroup.id} data-oid="4-shx0h">
                     {headerGroup.headers.map((header) => (
                       <th
                         key={header.id}
                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                        data-oid="at8xz4x"
                       >
                         {header.isPlaceholder
                           ? null
@@ -321,13 +350,21 @@ export default function Import() {
                   </tr>
                 ))}
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody
+                className="bg-white divide-y divide-gray-200"
+                data-oid="znnrx5h"
+              >
                 {table.getRowModel().rows.map((row) => (
-                  <tr key={row.id} className="hover:bg-gray-50">
+                  <tr
+                    key={row.id}
+                    className="hover:bg-gray-50"
+                    data-oid="m7ylda6"
+                  >
                     {row.getVisibleCells().map((cell) => (
                       <td
                         key={cell.id}
                         className="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                        data-oid="jahgj.d"
                       >
                         {flexRender(
                           cell.column.columnDef.cell,
@@ -344,18 +381,20 @@ export default function Import() {
       )}
 
       {data.length === 0 && !isUploading && (
-        <div className="text-center py-12">
+        <div className="text-center py-12" data-oid="ik0gpbx">
           <svg
             className="mx-auto h-12 w-12 text-gray-400 mb-4"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            data-oid="ffmmtkj"
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
               d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              data-oid="nva5ex2"
             />
 
             <path
@@ -363,26 +402,34 @@ export default function Import() {
               strokeLinejoin="round"
               strokeWidth={2}
               d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              data-oid="9hu39vm"
             />
           </svg>
-          <h3 className="text-lg font-medium text-gray-900 mb-2">
+          <h3
+            className="text-lg font-medium text-gray-900 mb-2"
+            data-oid="xkbqfls"
+          >
             No locations yet
           </h3>
-          <p className="text-gray-500">
+          <p className="text-gray-500" data-oid="h3.3z-k">
             Upload a CSV file to get started with your saved places
           </p>
         </div>
       )}
 
-      <div className="mt-6 flex justify-between items-center">
+      <div
+        className="mt-6 flex justify-between items-center"
+        data-oid="gw0e9zz"
+      >
         <button
           onClick={() => rerender()}
           className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
+          data-oid="1l-kz.w"
         >
           Refresh Data
         </button>
 
-        <div className="text-sm text-gray-500">
+        <div className="text-sm text-gray-500" data-oid="8bzfimr">
           Last updated: {new Date().toLocaleTimeString()}
         </div>
       </div>
